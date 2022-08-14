@@ -1,0 +1,40 @@
+.sidebar-section{
+    background-color: #0D43FF;
+    width: 100%;
+    max-width: 300px;
+    top: 0%;
+    left: 0;
+    height: 100vh;
+    color: white;
+}
+.nav-item>a{
+    color: white;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+.nav-item{
+    margin: 20px 0px 20px 0px;
+}
+.nav-item:hover{
+    background-color: #0c76e893;
+    border-left: 13px solid #00C0FF;
+    transition: 300ms;
+}
+.nav-item>a:hover{
+    color:  #00C0FF;
+    transition: 300ms;
+}
+.name-profile{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    width: 100%;
+    max-width: 150px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+}

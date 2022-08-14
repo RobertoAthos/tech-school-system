@@ -1,0 +1,24 @@
+.add-faculty-section{
+    display: flex;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+.add-faculty-content{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+.bg-content{
+    width: 100%;
+    background-color: #0C77E8;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    color: white;
+}
