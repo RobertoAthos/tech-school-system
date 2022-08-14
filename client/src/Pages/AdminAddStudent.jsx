@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom'
 import classnames from 'classnames'
 import { adminAddStudent } from '../redux/action/adminAction'
 import AdminHomeHelper from '../Components/AdminHomeHelper'
+import Button from '../Components/Button/Button'
+import '../Style/AdminAddStudent.css'
+import {AiOutlinePlus} from 'react-icons/ai'
 
 
 const AdminAddStudent = () => {
@@ -59,16 +62,17 @@ const AdminAddStudent = () => {
         }
     }, [store.error, store.admin.adminAddStudentFlag])
     return (
-        <div>
+        <section className='add-student-admin'>
             {store.admin.isAuthenticated ? <><AdminHomeHelper />
-                <div className="container mt-5">
-                    <div className="row ">
-                        <div className="col">
+                <div className="add-student-section">
+                    <div className="add-student-container ">
+                       
                             <form noValidate onSubmit={formHandler}>
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label htmlFor="nameId">Student Name</label>
+                                       <div className="container-inputs">
+                                       <div className="form-group">
+                                            <label htmlFor="nameId">Nome do Aluno</label>
                                             <input onChange={(e) => setName(e.target.value)} type="text" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.name
@@ -83,13 +87,15 @@ const AdminAddStudent = () => {
                                                 })} id="emailId" />
                                             {error.email && (<div className="invalid-feedback">{error.email}</div>)}
                                         </div>
+                                       </div>
+                                        <div className="container-inputs">
                                         <div className="form-group">
-                                            <label htmlFor="departmentId">Department</label>
+                                            <label htmlFor="departmentId">Departamento</label>
                                             <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.department
                                                 })} id="departmentId">
-                                                <option>Select</option>
+                                                <option>Selecione</option>
                                                 <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="fundamental 1">Fundamental 1</option>
                                         <option value="fundamental 2">Fundamental 2</option>
@@ -98,12 +104,12 @@ const AdminAddStudent = () => {
                                             {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="yearId">Year</label>
+                                            <label htmlFor="yearId">Ano</label>
                                             <select onChange={(e) => setYear(e.target.value)} className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.year
                                                 })} id="yearId">
-                                                <option>Select</option>
+                                                <option>Selecione</option>
                                                 <option value="1">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="2">1° ano ensino fundamental</option>
                                         <option value="3">2° ano ensino fundamental</option>
@@ -120,9 +126,11 @@ const AdminAddStudent = () => {
                                             </select>
                                             {error.year && (<div className="invalid-feedback">{error.year}</div>)}
                                         </div>
+                                        </div>
                                         
+                                        <div className="container-inputs">
                                         <div className="form-group">
-                                            <label htmlFor="sectionId">Section</label>
+                                            <label htmlFor="sectionId">Período</label>
                                             <input onChange={(e) => setSection(e.target.value)} type="text" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.section
@@ -130,59 +138,61 @@ const AdminAddStudent = () => {
                                             {error.section && (<div className="invalid-feedback">{error.section}</div>)}
                                         </div>
                                         <div class="form-group">
-                                            <label htmlFor="dobId">DOB</label>
+                                            <label htmlFor="dobId">Data de entrada</label>
                                             <input onChange={(e) => setDob(e.target.value)} type="date" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.dob
                                                 })} id="dobId" />
                                             {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
                                         </div>
+                                        </div>
                                     </div>
-                                    <div className="col-md-6">
+                                   
                                         
-                                        <div className="form-group">
-                                            <label htmlFor="genderId">Gender</label>
+                                       <div className="container-inputs">
+                                       <div className="form-group">
+                                            <label htmlFor="genderId">Gênero</label>
                                             <select onChange={(e) => setGender(e.target.value)} class="form-control" id="genderId">
-                                                <option>Select</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                <option value="Other">Other</option>
+                                                <option>Selecione</option>
+                                                <option value="Male">Masculino</option>
+                                                <option value="Female">Feminino</option>
+                                                <option value="Other">Outro...</option>
                                             </select>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="numberId">Contact Number</label>
+                                            <label htmlFor="numberId">Número de Contato</label>
                                             <input onChange={(e) => setContactNumber(e.target.value)} required type="number" class="form-control" id="numberId" />
                                         </div>
+                                       </div>
+                                        <div className="container-inputs">
                                         <div className="form-group">
-                                            <label htmlFor="fatherId">Father Name</label>
+                                            <label htmlFor="fatherId">Nome do Pai/Mãe</label>
                                             <input onChange={(e) => setFatherName(e.target.value)} type="text" class="form-control" id="fatherId" />
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="fathercnId">Father Contact Number</label>
+                                            <label htmlFor="fathercnId">Número do Pai/Mãe</label>
                                             <input onChange={(e) => setFatherContactNumber(e.target.value)} type="number" className="form-control" id="fathercnId" />
                                         </div>
-                                        <div className="form-group">
-                                            <label htmlFor="aadharId">Aadhar Card Number</label>
-                                            <input onChange={(e) => setAadharCard(e.target.value)} type="number" className="form-control" id="aadharId" />
                                         </div>
-                                    </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Loading...</span>
+                                                <span class="sr-only">Carregando...</span>
                                             </div>
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <button type="submit" className="btn btn-info  ">Add Student</button>}
+                               <div className="center-btn">
+                               {!isLoading && <Button type='submit' className='btn' title='Adicionar Aluno +'/>}
+                               </div>
                             </form>
                         </div>
                     </div>
-                </div></>:(history.push('/'))}
+                </>:(history.push('/'))}
             
-            </div>
+            </section>
 
             
       

@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { adminGetAllSubject } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
 import classnames from 'classnames'
+import '../../Style/AdminSubjects.css'
+import Button from '../../Components/Button/Button'
 
 const AdminGetAllSubjects = () => {
     const store = useSelector((store) => store)
@@ -28,21 +30,19 @@ const AdminGetAllSubjects = () => {
 
     }, [store.admin.allSubject.length])
     return (
-        <div>
-            <div>
+            <section className='all-subject-admin'>
                 {store.admin.isAuthenticated ? <>
                     <AdminHomeHelper />
-                    <div className="container">
-                        <div className="row mt-5">
-                            <div className="col-md-4">
+                    <div className="all-subject-container">
+                        <div className="all-subject-content">
                                 <form noValidate onSubmit={formHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="departmentId">Department</label>
+                                        <label htmlFor="departmentId">Departamento</label>
                                         <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                             {
                                                 'is-invalid': error.department
                                             })} id="departmentId">
-                                            <option>Select</option>
+                                            <option>Selecione</option>
                                             <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="fundamental 1">Fundamental 1</option>
                                         <option value="fundamental 2">Fundamental 2</option>
@@ -51,12 +51,12 @@ const AdminGetAllSubjects = () => {
                                         {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="yearId">Year</label>
+                                        <label htmlFor="yearId">Ano</label>
                                         <select onChange={(e) => setYear(e.target.value)} className={classnames("form-control",
                                             {
                                                 'is-invalid': error.year
                                             })} id="yearId">
-                                            <option>Select</option>
+                                            <option>Selecione</option>
                                             <option value="1">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="2">1° ano ensino fundamental</option>
                                         <option value="3">2° ano ensino fundamental</option>
@@ -77,26 +77,24 @@ const AdminGetAllSubjects = () => {
                                         <div class="col-md-1">
                                             {
                                                 isLoading && <div class="spinner-border text-primary" role="status">
-                                                    <span class="sr-only">Loading...</span>
+                                                    <span class="sr-only">Carregando...</span>
                                                 </div>
                                             }
                                         </div>
                                     </div>
-                                    {!isLoading && <button type="submit" className="btn btn-info btn-block  ">Search</button>}
+                                    {!isLoading && <Button type='submit' className='btn' title='Procurar'/>}
                                    
                                 </form>
 
 
                             </div>
-                            <div className="col-md-8">
+                            <div className="subject-info">
 
-                                {store.admin.allSubject.length !== 0 && <table className="table border">
+                                {store.admin.allSubject.length !== 0 && <table className="table-border">
                                     <thead>
                                         <tr>
-                                            <th scope="col">S.No</th>
-                                            <th scope="col">Subject Code</th>
-                                            <th scope="col">Subject Name</th>
-                                            <th scope="col">Total Lectures</th>
+                                            <th scope="col">N°</th>                      
+                                            <th scope="col">Matérias</th>  
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -104,9 +102,8 @@ const AdminGetAllSubjects = () => {
                                             store.admin.allSubject.map((res, index) =>
                                                 <tr key={index}>
                                                     <th scope="row">{index + 1}</th>
-                                                    <td>{res.subjectCode}</td>
                                                     <td>{res.subjectName}</td>
-                                                    <td>{res.totalLectures}</td>
+                                                   
                                                 </tr>
                                             )
                                         }
@@ -115,11 +112,9 @@ const AdminGetAllSubjects = () => {
 
                             </div>
                         </div>
-                    </div>
                 </> : (history.push('/'))}
-            </div>
+            </section>
             
-        </div>
     )
 }
 

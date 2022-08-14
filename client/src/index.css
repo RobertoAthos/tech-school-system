@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 button{
     border: none;
@@ -16,7 +16,11 @@ li{
 }
 input,select{
     border: 0;
-    outline: 1px solid #0CE8E5;
+    outline: 0;
     padding: 10px;
     margin: 8px 0px 8px 0px;
+    width: 400px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: 1px solid rgb(191, 194, 197);
 }

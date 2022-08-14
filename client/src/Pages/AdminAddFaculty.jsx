@@ -143,7 +143,7 @@ const AdminAddFaculty = () => {
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <Button title='Adicionar Professor(a)' type='submit'/>}
+                                <div className="center-btn">{!isLoading && <Button title='Adicionar Professor(a) +' type='submit'/>}</div>
                             </form>
                            </div>
                         </div>

@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import classnames from 'classnames'
 import { adminAddSubject } from '../redux/action/adminAction'
 import AdminHomeHelper from '../Components/AdminHomeHelper'
+import '../Style/AdminAddSubject.css'
+import Button from '../Components/Button/Button'
 
 const AdminAddSubject = () => {
     const store = useSelector((store) => store)
@@ -48,44 +50,42 @@ const AdminAddSubject = () => {
     }, [store.error, store.admin.adminAddSubjectFlag])
 
     return (
-        <div>
+        <section className='add-subject-admin'>
             {store.admin.isAuthenticated ? <> <AdminHomeHelper />
-                <div className="container mt-5">
-                    <div className="row justify-content-center">
-                        <div className="col-md-4">
-                            <div className="d-flex justify-content-md-center vh-100">
+                <div className="add-subject-container">
+                        <div className="add-subject-content">
                                 <form noValidate onSubmit={formHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="snameId">Subject Name</label>
+                                        <label htmlFor="snameId">Nome da Matéria</label>
                                         <input onChange={(e) => setSubjectName(e.target.value)} type="text" className={classnames("form-control",
                                             {
                                                 'is-invalid': error.subjectName
                                             })} id="snameId" />
                                         {error.subjectName && (<div className="invalid-feedback">{error.subjectName}</div>)}
                                     </div>
-                                    <div className="form-group">
-                                        <label htmlFor="scodeId">Subject Code</label>
+                                    {/* <div className="form-group">
+                                        <label htmlFor="scodeId">Código da Matéria</label>
                                         <input onChange={(e) => setSubjectCode(e.target.value)} type="text" className={classnames("form-control",
                                             {
                                                 'is-invalid': error.subjectCode
                                             })} id="scodeId" />
                                         {error.subjectCode && (<div className="invalid-feedback">{error.subjectCode}</div>)}
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="totalLectures">Total Lectures</label>
+                                    </div> */}
+                                   {/*  <div className="form-group">
+                                        <label htmlFor="totalLectures">Total de </label>
                                         <input onChange={(e) => setTotalLectures(e.target.value)} type="number" className={classnames("form-control",
                                             {
                                                 'is-invalid': error.totalLectures
                                             })} id="totalLectures" />
                                         {error.totalLectures && (<div className="invalid-feedback">{error.totalLectures}</div>)}
-                                    </div>
+                                    </div> */}
                                     <div className="form-group">
-                                        <label htmlFor="departmentId">Department</label>
+                                        <label htmlFor="departmentId">Departamento</label>
                                         <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                             {
                                                 'is-invalid': error.department
                                             })} id="departmentId">
-                                            <option>Select</option>
+                                            <option>Selecione</option>
                                             <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="fundamental 1">Fundamental 1</option>
                                         <option value="fundamental 2">Fundamental 2</option>
@@ -94,13 +94,13 @@ const AdminAddSubject = () => {
                                         {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="yearId">Year</label>
+                                        <label htmlFor="yearId">Ano</label>
                                         <select onChange={(e) => setYear(e.target.value)} className={classnames("form-control",
                                             {
                                                 'is-invalid': error.year
 
                                             })} id="yearId">
-                                            <option>Select</option>
+                                            <option>Selecione</option>
                                             <option value="1">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="2">1° ano ensino fundamental</option>
                                         <option value="3">2° ano ensino fundamental</option>
@@ -122,20 +122,19 @@ const AdminAddSubject = () => {
                                         <div class="col-md-1">
                                             {
                                                 isLoading && <div class="spinner-border text-primary" role="status">
-                                                    <span class="sr-only">Loading...</span>
+                                                    <span class="sr-only">Carregando...</span>
                                                 </div>
                                             }
                                         </div>
                                     </div>
-                                    {!isLoading && <button type="submit" className="btn btn-info  ">Add Subject</button>}
+                                    {!isLoading && <Button type='submit' className='btn' title='Adicionar Matéria'/>}
                                    
                                     
                                 </form>
                             </div>
-                        </div>
                     </div>
-                </div></>: (history.push('/'))}
-        </div>
+                </>: (history.push('/'))}
+        </section>
     )
 }
 

@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { adminGetAllStudent } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
 import classnames from 'classnames'
+import '../../Style/AdminStudent.css'
+import Button from '../../Components/Button/Button'
 
 const AdminGetAllFaculty = () => {
     const store = useSelector((store) => store)
@@ -31,20 +33,19 @@ const AdminGetAllFaculty = () => {
 
     }, [store.admin.allStudent.length])
     return (
-        <div>
+        <section className='all-student-admin'>
             {store.admin.isAuthenticated ? <>
                 <AdminHomeHelper />
-                <div className="container">
-                    <div className="row mt-5">
-                        <div className="col-md-4">
+                <div className="all-student-container">
+                    <div className="all-student-content">
                             <form noValidate onSubmit={formHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="departmentId">Department</label>
+                                    <label htmlFor="departmentId">Departamento</label>
                                     <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                         {
                                             'is-invalid': error.department
                                         })} id="departmentId">
-                                        <option>Select</option>
+                                        <option>Selecione</option>
                                         <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="fundamental 1">Fundamental 1</option>
                                         <option value="fundamental 2">Fundamental 2</option>
@@ -53,7 +54,7 @@ const AdminGetAllFaculty = () => {
                                     {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="yearId">Year</label>
+                                    <label htmlFor="yearId">Ano</label>
                                     <select onChange={(e) => setYear(e.target.value)} className={classnames("form-control",
                                         {
                                             'is-invalid': error.year
@@ -84,23 +85,24 @@ const AdminGetAllFaculty = () => {
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <button type="submit" className="btn btn-info btn-block  ">Search</button>}
+                                {!isLoading && <Button type='submit' className='btn' title='Procurar'/>}
                               
                                
                             </form>
 
 
                         </div>
-                        <div className="col-md-8">
+                        <div className="student-info">
 
-                            {store.admin.allStudent.length !== 0 && <table className="table border">
+                            {store.admin.allStudent.length !== 0 && <table className="table-border">
                                 <thead>
                                     <tr>
-                                        <th scope="col">S.No</th>
-                                        <th scope="col">Registration Number</th>
-                                        <th scope="col">Name</th>
+                                        <td scope="col">N°</td>
+                                        <th scope="col">Nome</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Section</th>
+                                        <th scope="col">Período</th>
+                                        <th scope="col">Número do aluno</th>
+                                        <th scope="col">Número do Pai/Mãe</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -108,10 +110,11 @@ const AdminGetAllFaculty = () => {
                                         store.admin.allStudent.map((res, index) =>
                                             <tr key={index}>
                                                 <th scope="row">{index + 1}</th>
-                                                <td>{res.registrationNumber}</td>
                                                 <td>{res.name}</td>
                                                 <td>{res.email}</td>
                                                 <td>{res.section}</td>
+                                                <td>{res.studentMobileNumber}</td>
+                                                <td>{res.fatherMobileNumber}</td>
                                             </tr>
                                         )
                                     }
@@ -120,9 +123,8 @@ const AdminGetAllFaculty = () => {
 
                         </div>
                     </div>
-                </div>
             </> : (history.push('/'))}
-        </div>
+        </section>
     )
 }
 

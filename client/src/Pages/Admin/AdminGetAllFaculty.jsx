@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { adminGetAllFaculty } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
 import classnames from 'classnames'
+import Button from '../../Components/Button/Button'
+import '../../Style/AdminFaculty.css'
 
 const AdminGetAllFaculty = () => {
     const store = useSelector((store) => store)
@@ -29,20 +31,19 @@ const AdminGetAllFaculty = () => {
 
     
     return (
-        <div>
+        <section className='all-faculty-admin'>
             {store.admin.isAuthenticated ? <>
                 <AdminHomeHelper />
-                <div className="container">
-                    <div className="row mt-5">
-                        <div className="col-md-4">
+                <div className="all-faculty-container">
+                    <div className="all-faculty-content">
                             <form form-inline noValidate onSubmit={formHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="departmentId">Department</label>
+                                    <label htmlFor="departmentId">Departamento</label>
                                     <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                         {
                                             'is-invalid': error.department
                                         })} id="departmentId">
-                                        <option>Select</option>
+                                        <option>Selecione</option>
                                         <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="fundamental 1">Fundamental 1</option>
                                         <option value="fundamental 2">Fundamental 2</option>
@@ -54,26 +55,26 @@ const AdminGetAllFaculty = () => {
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Loading...</span>
+                                                <span class="sr-only">Carregando...</span>
                                             </div>
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <button type="submit" className="btn btn-info btn-block  ">Search</button>}
+                                {!isLoading && <Button type='submit' className='btn' title='Procurar'/>}
                             </form>
 
 
                         </div>
-                        <div className="col-md-8">
+                        <div className="faculty-info">
                             
-                            {store.admin.allFaculty.length !== 0 && <table className="table border">
+                            {store.admin.allFaculty.length !== 0 && <table className="table-border">
                                 <thead>
                                     <tr>
-                                        <th scope="col">S.No</th>
-                                        <th scope="col">Registration Number</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">N°</th>
+                                        <th scope="col">Número de Registro</th>
+                                        <th scope="col">Nome</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Joining Year</th>
+                                        <th scope="col">Número de Contato</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,7 +85,7 @@ const AdminGetAllFaculty = () => {
                                                 <td>{res.registrationNumber}</td>
                                                 <td>{res.name}</td>
                                                 <td>{res.email}</td>
-                                                <td>{res.joiningYear}</td>
+                                                <td>{res.facultyMobileNumber}</td>
                                             </tr>
                                         )
                                     }
@@ -93,9 +94,8 @@ const AdminGetAllFaculty = () => {
                            
                         </div>
                     </div>
-                </div>
             </> : (history.push('/'))}
-        </div>
+        </section>
     )
 }
 

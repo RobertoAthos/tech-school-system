@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import classnames from 'classnames'
 import { adminAddAdmin } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
+import Button from '../../Components/Button/Button'
+import '../../Style/AdminAddAdmin.css'
 
 
 
@@ -57,16 +59,15 @@ const AdminAddAdmin = () => {
 
     return (
 
-        <div>
+        <section className='add-admin-section'>
             {store.admin.isAuthenticated ? (<><AdminHomeHelper />
-                <div className="container mt-5">
-                    <div className="row ">
-                        <div className="col">
+                    <div className="add-admin-container ">
+                        <div className="add-admin-content">
                             <form noValidate onSubmit={formHandler}>
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="nameId">Admin Name</label>
+                                            <label htmlFor="nameId">Nome do Administrador</label>
                                             <input onChange={(e) => setName(e.target.value)} type="text" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.name
@@ -83,25 +84,23 @@ const AdminAddAdmin = () => {
                                         </div>
 
                                         <div className="form-group">
-                                            <label htmlFor="departmentId">Department</label>
+                                            <label htmlFor="departmentId">Departamento</label>
                                             <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.department
                                                 })} id="departmentId">
-                                                <option>Select</option>
-                                                <option value="E.C.E">E.C.E</option>
-                                                <option value="C.S.E">C.S.E</option>
-                                                <option value="E.E.E">E.E.E</option>
-                                                <option value="I.T">I.T</option>
-                                                <option value="Mechanical">Mechanical</option>
-                                                <option value="Civil">Civil</option>
+                                               <option>Selecione</option>
+                                                <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
+                                                <option value="fundamental 1">Fundamental 1</option>
+                                                <option value="fundamental 2">Fundamental 2</option>
+                                                <option value="ensino Médio">Ensino Médio</option>
                                             </select>
                                             {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="dobId">DOB</label>
+                                            <label htmlFor="dobId">Data de Entrada</label>
                                             <input onChange={(e) => setDob(e.target.value)} type="date" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.dob
@@ -109,7 +108,7 @@ const AdminAddAdmin = () => {
                                             {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="numberId">Contact Number</label>
+                                            <label htmlFor="numberId">Número de Contato</label>
                                             <input onChange={(e) => setContactNumber(e.target.value)} type="number" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.contactNumber
@@ -122,18 +121,18 @@ const AdminAddAdmin = () => {
                                         <div class="col-md-1">
                                             {
                                                 isLoading && <div class="spinner-border text-primary" role="status">
-                                                    <span class="sr-only">Loading...</span>
+                                                    <span class="sr-only">Carregando...</span>
                                                 </div>
                                             }
                                         </div>
                                     </div>
-                                    {!isLoading && <button type="submit" className="btn btn-info  ">Add Admin</button>}
+                                    {!isLoading && <Button type='submit' className='btn' title='Adicionar Admin'/>}
                             </form>
                         </div>
                     </div>
-                </div></>) : (history.push('/'))}
+               </>) : (history.push('/'))}
 
-        </div>
+        </section>
 
 
 

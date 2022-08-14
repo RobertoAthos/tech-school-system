@@ -64,12 +64,12 @@ module.exports = {
                 result: attendence.map(att => {
                     let res = {};
                     res.attendence = ((att.lectureAttended / att.totalLecturesByFaculty) * 100).toFixed(2)
-                    res.subjectCode = att.subject.subjectCode
+                   /*  res.subjectCode = att.subject.subjectCode */
                     res.subjectName = att.subject.subjectName
                     res.maxHours = att.subject.totalLectures
                     res.absentHours = att.totalLecturesByFaculty - att.lectureAttended
                     res.lectureAttended = att.lectureAttended
-                    res.totalLecturesByFaculty = att.totalLecturesByFaculty
+                    /* res.totalLecturesByFaculty = att.totalLecturesByFaculty */
                     return res
                 })
             })

@@ -3,6 +3,10 @@ import { Link, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { adminLogout } from '../redux/action/adminAction'
 import '../Style/GlobalSideBarStyles.css'
+import {IoHomeSharp} from 'react-icons/io5'
+import {FiUserPlus,FiFolderPlus} from 'react-icons/fi'
+import {BsPersonPlusFill} from 'react-icons/bs'
+import {RiAdminFill} from 'react-icons/ri'
 
 
 const Home = () => {
@@ -25,26 +29,28 @@ const Home = () => {
           
             <nav className="navigation-container">
                 <div className="links-container">
-                <button style={{ listStyle: "None" }} onClick={logoutHandler} type="button" className="btn"><li>LOGOUT</li></button>
+               
                 <h2>Bem Vindo de Volta !</h2>
                 <div className="name-profile">
                     <h3>{name.toUpperCase()}</h3>
                 </div>
+                <div className="logout"><button onClick={logoutHandler} type="button" className="btn-logout">LOGOUT</button></div>
+                
                     <ul className="navbar-nav">
                     <li className="nav-item">
-                            <Link to="/admin"><li>Home</li></Link>
+                            <Link to="/admin"><li><IoHomeSharp className='icon'/>Home</li></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/admin/addFaculty"><li>Adicionar Professor</li></Link>
+                            <Link to="/admin/addFaculty"><li><FiUserPlus className='icon'/>Adicionar Professor</li></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/admin/addStudent"><li>Adicionar Aluno</li></Link>
+                            <Link to="/admin/addStudent"><li><BsPersonPlusFill className='icon'/>Adicionar Aluno</li></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/admin/addSubject"><li>Adicionar Matéria</li></Link>
+                            <Link to="/admin/addSubject"><li><FiFolderPlus className='icon'/>Adicionar Matéria</li></Link>
                         </li>
                         <li className="nav-item">
-                           <Link to="/admin/addAdmin"><li>Adicionar Admin</li></Link>
+                           <Link to="/admin/addAdmin"><li><RiAdminFill className='icon'/>Adicionar Admin</li></Link>
                         </li>
                     </ul>
                 </div>

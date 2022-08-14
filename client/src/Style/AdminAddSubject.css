@@ -1,0 +1,22 @@
+.add-subject-admin{
+    display: flex;
+}
+.add-subject-container{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    height: 100vh;
+}
+.add-subject-content{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0C77E8;
+    margin-top: 4rem;
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+}

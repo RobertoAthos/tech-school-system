@@ -1,0 +1,24 @@
+.add-admin-section{
+    display: flex;
+}
+.add-admin-container{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.add-admin-content{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0C77E8;
+    padding: 25px;
+    color: white;
+    border-radius: 15px;
+}

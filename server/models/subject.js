@@ -6,19 +6,19 @@ const subjectSchema = new Schema({
         type: String,
         required: true
     },
-    subjectCode: {
+/*     subjectCode: {
         type: String,
         required: true
-    },
+    }, */
     subjectName: {
         type: String,
         required: true,
         trim: true
     },
-    totalLectures: {
+/*     totalLectures: {
         type: Number,
         default:30
-    },
+    }, */
     year: {
         type: String,
         required: true 

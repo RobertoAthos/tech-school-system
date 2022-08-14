@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import AdminHomeHelper from "../../Components/AdminHomeHelper";
 import '../../Style/AdminHome.css'
+import {IoIosPeople} from 'react-icons/io'
+import {GiTeacher,GiBookshelf} from 'react-icons/gi'
 
 const AdminHome = () => {
   const store = useSelector((store) => store);
@@ -19,22 +21,23 @@ const AdminHome = () => {
             <div className="cards-container">
               <div className="card">
                 <li className="card-link">
+                
                   <Link to="/admin/allStudents">
-                    <li>Nossos Alunos</li>
+                    <li><IoIosPeople className="icon"/>Nossos Alunos</li>
                   </Link>
                 </li>
               </div>
               <div className="card">
                 <li className="card-link">
                   <Link to="/admin/allSubject">
-                    <li>Todas as Matérias</li>
+                    <li><GiBookshelf className="icon"/>Todas as Matérias</li>
                   </Link>
                 </li>
               </div>
               <div className="card">
                 <li className="card-link">
                   <Link to="/admin/allFaculties">
-                    <li>Nossos Professores</li>
+                    <li><GiTeacher className="icon"/>Nossos Professores</li>
                   </Link>
                 </li>
               </div>
