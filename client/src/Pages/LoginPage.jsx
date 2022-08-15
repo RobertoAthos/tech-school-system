@@ -6,6 +6,7 @@ import classnames from 'classnames'
 import '../Style/LoginPage.css'
 
 
+
 const LoginPage = () => {
     const store = useSelector((store) => store)
     const dispatch = useDispatch( )
@@ -45,7 +46,7 @@ const LoginPage = () => {
 
     
     return (
-        <section className="admin-login-section">
+        <section className="admin-login-section" layoutId="underline">
             <div className="admin-login-container">
                     <div className="admin-login-content">
                             <h1>Admin Login</h1>

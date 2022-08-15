@@ -1,0 +1,62 @@
+.upload-grades-section{
+    display: flex;
+}
+.upload-grades-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.upload-grades-content{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #0C77E8;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+}
+.info-grades>.form-group>input{
+    width:280px;
+}
+.form-check>input{
+    width: 150px;
+}
+.upload-grades-container-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.info-grades{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.inputs-grades{
+    display: flex;
+    justify-content: center;
+    background-color: #0C77E8;
+    padding: 10px;
+    margin-top: 3rem;
+    border-radius: 20px;
+    color: white;
+}
+.student-grades{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.student-grades>.btn{
+    margin: 20px 0px 20px 0px;
+}

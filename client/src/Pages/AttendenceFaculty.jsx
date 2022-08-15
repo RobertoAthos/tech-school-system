@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import {fetchStudents,markAttendence } from '../redux/action/facultyAction'
 import FacultyHomeHelper from '../Components/FacultyHomeHelper'
 import { useHistory } from 'react-router-dom'
-
+import '../Style/Attendence.css'
 
 const AttendenceFaculty = () => {
     const store = useSelector((store) => store)
@@ -72,26 +72,26 @@ const AttendenceFaculty = () => {
     },[store.faculty.fetchedStudentsHelper])
     
     return (
-        <div>
+        <section className='attendence-faculty-section'>
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
-                {store.faculty.fetchedStudentsHelper && <div className="row justify-content-center mt-4 ">
-                    <div className="col-md-4">
+                {store.faculty.fetchedStudentsHelper && <div className="attendence-faculty-container ">
+                    <div className="attendence-faculty-content">
                         <form noValidate onSubmit={formHandler}>
                             <div className="form-group">
-                                <label htmlFor="branchId">Department</label>
+                                <label htmlFor="branchId">Departamento</label>
                                 <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                     {
                                         'is-invalid': error.department
 
                                     })} id="branchId">
-                                    <option>Select</option>
+                                    <option>Selecione</option>
                                     <option value={store.faculty.faculty.faculty.department}>{store.faculty.faculty.faculty.department}</option>
                                 </select>
                                 {error.department && (<div classNameName="invalid-feedback">{error.department}</div>)}
                             </div>
                             <div className="form-group">
-                                <label htmlFor="yearId">Year</label>
+                                <label htmlFor="yearId">Ano</label>
                                 <select onChange={(e) => setYear(e.target.value)} className={classnames("form-control",
                                     {
                                         'is-invalid': error.year
@@ -117,7 +117,7 @@ const AttendenceFaculty = () => {
                             </div>
                            
                             <div className="form-group">
-                                <label htmlFor="sectionId">Section</label>
+                                <label htmlFor="sectionId">Período</label>
                                 <select onChange={(e) => setSection(e.target.value)} className={classnames("form-control",
                                     {
                                         'is-invalid': error.section
@@ -137,12 +137,12 @@ const AttendenceFaculty = () => {
                                 <div class="col-md-1">
                                     {
                                         isLoading && <div class="spinner-border text-primary" role="status">
-                                            <span class="sr-only">Loading...</span>
+                                            <span class="sr-only">Carregando...</span>
                                         </div>
                                     }
                                 </div>
                             </div>
-                            {!isLoading && <button type="submit" className="btn btn-info  ">Search</button>}
+                            {!isLoading && <button type="submit" className="btn btn-info  ">Procurar</button>}
                         </form>
                     </div>
                 </div>}
@@ -151,25 +151,14 @@ const AttendenceFaculty = () => {
                 {!store.faculty.fetchedStudentsHelper && <div className="row  justify-content-center mt-4">
                     <div className="col-md-4">
                         <form onSubmit={secondFormHandler}>
-                            <div className="form-group">
-                                <label htmlFor="subjectId">Subject Code</label>
-                                <select required onChange={(e) => setSubjectCode(e.target.value)} className="form-control" id="subjectId">
-                                    <option>Select</option>
-                                    {
-                                        store.faculty.allSubjectCodeList.map(subjectCodeName =>
-                                            <option>{subjectCodeName}</option>
-                                        )
-                                    }
-                                </select>
-                            </div>
                             <table className="table">
                                 <thead>
                                     <tr>
                                         <td><div className="form-check">
                                             <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                                         </div></td>
-                                        <th scope="col">Registration Number</th>
-                                        <th scope="col">Student Name</th>
+                                        <th scope="col">Número de Registro</th>
+                                        <th scope="col">Aluno</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -201,7 +190,7 @@ const AttendenceFaculty = () => {
                 </div>
                 }</> : (history.push('/'))}
             
-        </div>
+        </section>
     )
 }
 

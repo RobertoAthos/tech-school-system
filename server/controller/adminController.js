@@ -342,7 +342,7 @@ module.exports = {
             if (!isValid) {
                 return res.status(400).json(errors)
             }
-            const { /* totalLectures, */ department, /* subjectCode, */
+            const { /* totalLectures, */ department, subjectCode,
                 subjectName, year } = req.body
             const subject = await Subject.findOne({ subjectName })
             if (subject) {
@@ -352,7 +352,7 @@ module.exports = {
             const newSubject = await new Subject({
                /*  totalLectures, */
                 department,
-               /*  subjectCode, */
+                subjectCode,
                 subjectName,
                 year
             })

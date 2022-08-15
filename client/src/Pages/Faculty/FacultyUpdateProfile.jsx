@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, withRouter } from 'react-router-dom'
-
-
 import { facultyUpdate, facultyLogout} from '../../redux/action/facultyAction'
 import FacultyHomeHelper from '../../Components/FacultyHomeHelper'
+import '../../Style/FacultyUpdate.css'
+import Button from '../../Components/Button/Button'
 
 
 const FacultyUpdateProfile = () => {
@@ -45,50 +45,45 @@ const FacultyUpdateProfile = () => {
         }
     }, [store.faculty.updateProfileFlag])
     return (
-        <div>
+        <section className='faculty-update-section'>
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
-                <div className="container mt-5">
-                    <div className="row ">
-                        <div className="col-md-5 w-100 m-auto">
+                <div className="faculty-update-container">
+                    <div className="faculty-update-content ">
                             <form onSubmit={formHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="inputId">Profile Picture</label>
+                                    <label htmlFor="inputId">Foto de Perfil</label>
                                     <input required className="form-control" type="file" accept=".jpg,.png,.jpeg" id="inputId" onChange={imagehandler}></input>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="genderId">Gender</label>
+                                    <label htmlFor="genderId">Gênero</label>
                                     <select onChange={(e) => setGender(e.target.value)} className="form-control" id="genderId">
-                                        <option>Select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
+                                        <option>Selecione</option>
+                                        <option value="Male">Masculinoe</option>
+                                        <option value="Female">Feminino</option>
+                                        <option value="Other">Outro...</option>
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="numberId">Contact Number</label>
+                                    <label htmlFor="numberId">Número de Contato</label>
                                     <input onChange={(e) => setContactNumber(e.target.value)} required type="number" className="form-control" id="numberId" />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="aadharId">Aadhar Card Number</label>
-                                    <input onChange={(e) => setAadharCard(e.target.value)} type="number" className="form-control" id="aadharId" />
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Loading...</span>
+                                                <span class="sr-only">Carregando...</span>
                                             </div>
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <button type="submit" className="btn btn-info">Update</button>}
+                                <div className="center-btn">{!isLoading && <Button type='submit' className='btn' title='Atualizar'/>}</div>
                             </form>
                         </div>
                     </div>
-                </div></> : (history.push('/'))}
+                </> : (history.push('/'))}
             
-        </div>
+        </section>
     )
 }
 

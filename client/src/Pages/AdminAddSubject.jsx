@@ -63,22 +63,14 @@ const AdminAddSubject = () => {
                                             })} id="snameId" />
                                         {error.subjectName && (<div className="invalid-feedback">{error.subjectName}</div>)}
                                     </div>
-                                    {/* <div className="form-group">
+                                    <div className="form-group">
                                         <label htmlFor="scodeId">Código da Matéria</label>
                                         <input onChange={(e) => setSubjectCode(e.target.value)} type="text" className={classnames("form-control",
                                             {
                                                 'is-invalid': error.subjectCode
                                             })} id="scodeId" />
                                         {error.subjectCode && (<div className="invalid-feedback">{error.subjectCode}</div>)}
-                                    </div> */}
-                                   {/*  <div className="form-group">
-                                        <label htmlFor="totalLectures">Total de </label>
-                                        <input onChange={(e) => setTotalLectures(e.target.value)} type="number" className={classnames("form-control",
-                                            {
-                                                'is-invalid': error.totalLectures
-                                            })} id="totalLectures" />
-                                        {error.totalLectures && (<div className="invalid-feedback">{error.totalLectures}</div>)}
-                                    </div> */}
+                                    </div>
                                     <div className="form-group">
                                         <label htmlFor="departmentId">Departamento</label>
                                         <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",

@@ -97,11 +97,11 @@ module.exports = {
     },
     markAttendence: async (req, res, next) => {
         try {
-            const { selectedStudents, subjectCode, department,
+            const { selectedStudents, /* subjectCode, */ department,
                 year,
                 section } = req.body
             
-            const sub = await Subject.findOne({ subjectCode })
+           /*  const sub = await Subject.findOne({ subjectCode }) */
 
             //All Students
             const allStudents = await Student.find({ department, year, section })
@@ -113,11 +113,11 @@ module.exports = {
             
             //Attendence mark karne wale log nahi
             for (let i = 0; i < filteredArr.length; i++) {
-                const pre = await Attendence.findOne({ student: filteredArr[i]._id, subject: sub._id })
+                const pre = await Attendence.findOne({ student: filteredArr[i]._id, /* subject: sub._id */ })
                 if (!pre) {
                     const attendence = new Attendence({
                         student: filteredArr[i],
-                        subject: sub._id
+                        /* subject: sub._id */
                     })
                     attendence.totalLecturesByFaculty += 1
                     await attendence.save()
@@ -128,19 +128,19 @@ module.exports = {
                 }
             }
             for (var a = 0; a < selectedStudents.length; a++) {
-                const pre = await Attendence.findOne({ student: selectedStudents[a], subject: sub._id })
+                const pre = await Attendence.findOne({ student: selectedStudents[a], /* subject: sub._id */ })
                 if (!pre) {
                     const attendence = new Attendence({
                         student: selectedStudents[a],
-                        subject: sub._id
+                        /* subject: sub._id */
                     })
-                    attendence.totalLecturesByFaculty += 1
-                    attendence.lectureAttended += 1
+                  /*   attendence.totalLecturesByFaculty += 1
+                    attendence.lectureAttended += 1 */
                     await attendence.save()
                 }
                 else {
-                    pre.totalLecturesByFaculty += 1
-                    pre.lectureAttended += 1
+                   /*  pre.totalLecturesByFaculty += 1
+                    pre.lectureAttended += 1 */
                     await pre.save()
                 }
             }
@@ -161,7 +161,7 @@ module.exports = {
             }
             const { subjectCode, exam, totalMarks, marks, department, year,
                 section } = req.body
-            const subject = await Subject.findOne({ subjectCode })
+            const subject = await Subject.findOne({ subjectCode})
             const isAlready = await Mark.find({ exam, department, section, subjectCode:subject._id })
             if (isAlready.length !== 0) {
                 errors.exam = "You have already uploaded marks of given exam"

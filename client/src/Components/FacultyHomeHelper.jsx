@@ -1,62 +1,76 @@
-import React, {useState,useEffect} from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { useDispatch, useSelector} from 'react-redux'
-import {facultyLogout} from '../redux/action/facultyAction'
-
-
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { facultyLogout } from "../redux/action/facultyAction";
+import "../Style/GlobalSideBarStyles.css";
+import {IoHomeSharp,IoCheckmarkSharp} from 'react-icons/io5'
+import {MdUpdate} from 'react-icons/md'
+import {GiPencilRuler} from 'react-icons/gi'
+import {RiLockPasswordLine} from 'react-icons/ri'
 
 const Home = () => {
-    const store = useSelector((store)=>store)
-    const history = useHistory()
-    const dispatch = useDispatch()
-    const [name, setName] = useState("")
-    useEffect(() => {
-
-        if (store.faculty.faculty.faculty.name) {
-            setName(store.faculty.faculty.faculty.name)
-        }
-    }, [store.faculty.faculty.faculty.name])
-    const logoutHandler = () => {
-        dispatch(facultyLogout())
-        history.push('/')
+  const store = useSelector((store) => store);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  useEffect(() => {
+    if (store.faculty.faculty.faculty.name) {
+      setName(store.faculty.faculty.faculty.name);
     }
-    return (
-        <div className="container-fluid">
-            {/* <Header /> */}
-            <div className="row">
-                <div className="col">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                        <h4 className="navbar-brand mt-1" href="">SRM</h4>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav">
-                                <li className="nav-item active">
-                                    <button type="button" className="btn"><Link to="/home"><li>{name.toUpperCase()}</li></Link></button>
-                                </li>
-                                <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/faculty/updateProfile"><li>UPDATE PROFILE</li></Link></button>
-                                </li>
-                                <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/attendenceFaculty"><li>MARK ATTENDANCE</li></Link></button>
-                                </li>
-                                <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/faculty/uploadMarks"><li>UPLOAD MARKS</li></Link></button>
-                                </li>
-                                <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/faculty/updatePassword"><li>UPDATE PASSWORD</li></Link></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <button style={{listStyle:"None"}} onClick={logoutHandler} type="button" className="btn"><li>LOGOUT</li></button>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    )
-}
+  }, [store.faculty.faculty.faculty.name]);
+  const logoutHandler = () => {
+    dispatch(facultyLogout());
+    history.push("/");
+  };
+  return (
+    <div className="sidebar-section">
+      <nav className="navigation-container">
+        <div className="links-container">
+          <h2>Bem Vindo de Volta !</h2>
+          <div className="name-profile">
+            <h3>{name.toUpperCase()}</h3>
+          </div>
+          <div className="logout">
+            <button
+              onClick={logoutHandler}
+              type="button"
+              className="btn-logout"
+            >
+              LOGOUT
+            </button>
+          </div>
 
-export default Home
+          <ul className="navbar-nav">
+            <li className="nav-item active">        
+                <Link to="/home">
+                  <li><IoHomeSharp className='icon'/>Home</li>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/faculty/updateProfile">
+                  <li><MdUpdate className="icon"/>Atualizar Perfil</li>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/attendenceFaculty">
+                  <li><IoCheckmarkSharp className="icon"/>Marcar Presença</li>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/faculty/uploadMarks">
+                  <li><GiPencilRuler className="icon"/>Lançar Notas</li>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/faculty/updatePassword">
+                  <li><RiLockPasswordLine className="icon"/>Atualizar Senha</li>
+                </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default Home;

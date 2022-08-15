@@ -20,6 +20,7 @@ app.use(cors())
 const adminRoutes = require('./routes/adminRoutes')
 const facultyRoutes = require('./routes/facultyRoutes')
 const studentRoutes = require('./routes/studentRoutes')
+const tasksRoutes = require('./routes/tasksRoutes')
 
 //Passport Middleware
 app.use(passport.initialize());
@@ -52,6 +53,7 @@ let _response = {}
 app.use('/api/admin', adminRoutes)
 app.use('/api/faculty', facultyRoutes)
 app.use('/api/student', studentRoutes)
+app.use("/api/tasks", tasksRoutes);
 
 
 //Catching 404 Error
