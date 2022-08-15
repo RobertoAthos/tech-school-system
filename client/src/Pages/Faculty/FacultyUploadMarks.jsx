@@ -160,6 +160,11 @@ const FacultyUploadMarks = () => {
 
                                     })} id="examId">
                                     <option>Selecione</option>
+                                   {/*  <option value="CycleTest1">Trabalho</option>
+                                    <option value="CycleTest2">Prova</option>
+                                    <option value="CycleTest3">Trabalhos/Teste</option>
+                                    <option value="CycleTest4">Simulado</option>
+                                    <option value="CycleTest5">Atividades</option> */}
                                     <option value="CycleTest1">Português</option>
                                     <option value="CycleTest2">Matemática</option>
                                     <option value="CycleTest3">Inglês</option>
@@ -169,7 +174,7 @@ const FacultyUploadMarks = () => {
                                     <option value="CycleTest7">Sociologia</option>
                                     <option value="CycleTest8">Filosofia</option>
                                     <option value="CycleTest9">Biologia/ciências</option>
-                                    <option value="CycleTest10">Química</option>
+                                    <option value="CycleTest10">Química</option> 
                                 </select>
                                 {errorHelper.exam && (<div classNameName="invalid-feedback">{errorHelper.exam}</div>)}
                             </div>

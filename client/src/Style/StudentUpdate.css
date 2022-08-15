@@ -1,0 +1,21 @@
+.student-update-section{
+    display: flex;
+}
+.student-update-container{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.student-update-content{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #0C77E8;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+}

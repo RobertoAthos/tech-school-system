@@ -58,8 +58,8 @@ module.exports = {
             else {
                 helper = admins.length.toString()
             }
-            let hashedPassword;
-            hashedPassword = await bcrypt.hash(dob, 10)
+            /* let hashedPassword;
+            hashedPassword = await bcrypt.hash(dob, 10) */
             var date = new Date();
             const joiningYear = date.getFullYear()
             var components = [
@@ -73,7 +73,7 @@ module.exports = {
             const newAdmin = await new Admin({
                 name,
                 email,
-                password: hashedPassword,
+                password: name + departmentHelper,
                 joiningYear,
                 registrationNumber,
                 department,
@@ -187,8 +187,8 @@ module.exports = {
             else {
                 helper = students.length.toString()
             }
-            let hashedPassword;
-            hashedPassword = await bcrypt.hash(dob, 10)
+            /* let hashedPassword;
+            hashedPassword = await bcrypt.hash(dob, 10) */
             var date = new Date();
             const batch = date.getFullYear()
             var components = [
@@ -202,7 +202,7 @@ module.exports = {
             const newStudent = await new Student({
                 name,
                 email,
-                password: hashedPassword,
+                password: name + departmentHelper,
                 year,
                 fatherName,
                 /* aadharCard, */
@@ -287,8 +287,8 @@ module.exports = {
             else {
                 helper = faculties.length.toString()
             }
-            let hashedPassword;
-            hashedPassword = await bcrypt.hash(dob, 10)
+            /* let hashedPassword;
+            hashedPassword = await bcrypt.hash(dob, 10) */
             var date = new Date();
             const joiningYear = date.getFullYear()
             var components = [
@@ -303,7 +303,7 @@ module.exports = {
                 name,
                 email,
                 designation,
-                password: hashedPassword,
+                password: name + departmentHelper,
                 department,
                 facultyMobileNumber,
                 gender,

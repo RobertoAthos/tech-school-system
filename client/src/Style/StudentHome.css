@@ -1,0 +1,36 @@
+.student-home{
+    display: flex;
+}
+
+.card>.nav-item-links>a{
+    padding: 15px;
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    background: rgb(0,192,255);
+    background: linear-gradient(90deg, rgba(0,192,255,1) 0%, rgba(12,119,232,1) 50%);
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.144);
+    transition: 300ms;
+    cursor: pointer;
+}
+.card>.nav-item-links>a>li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card>.nav-item-links>a:hover{
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.336);
+}
+.card>.nav-item-links>a>li>.icon{
+    font-size: 4rem;
+    margin: 10px;
+}
