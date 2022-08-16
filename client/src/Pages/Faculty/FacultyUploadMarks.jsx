@@ -20,7 +20,7 @@ const FacultyUploadMarks = () => {
     const [exam ,setExam] = useState("")
     const [error, setError] = useState({})
     const [errorHelper, setErrorHelper] = useState({})
-
+    const [semester, setSemester] = useState("")
    
 
 
@@ -60,7 +60,7 @@ const FacultyUploadMarks = () => {
 
     const secondFormHandler = (e) => {
         e.preventDefault()
-        dispatch(uploadMarks( subjectCode,exam, totalMarks, marks, department, section
+        dispatch(uploadMarks( subjectCode,exam, totalMarks, marks, department, section,semester
         ))
     }
 
@@ -82,6 +82,20 @@ const FacultyUploadMarks = () => {
                                     <option value={store.faculty.faculty.faculty.department}>{store.faculty.faculty.faculty.department}</option>
                                 </select>
                                 {error.department && (<div classNameName="invalid-feedback">{error.department}</div>)}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="semesterId">Bimestre</label>
+                                <select onChange={(e) => setSemester(e.target.value)} className={classnames("form-control",
+                                    {
+                                        'is-invalid': error.semester
+                                    })} id="semesterId">
+                                    <option>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                                {error.semester && (<div classNameName="invalid-feedback">{error.semester}</div>)}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="yearId">Ano</label>

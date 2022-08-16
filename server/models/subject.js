@@ -15,10 +15,9 @@ const subjectSchema = new Schema({
         required: true,
         trim: true
     },
-/*     totalLectures: {
+    totalLectures: {
         type: Number,
-        default:30
-    }, */
+    },
     year: {
         type: String,
         required: true 

@@ -181,14 +181,14 @@ export const markAttendence = (selectedStudents, subjectCode, department, year,
 }
 
 export const uploadMarks = (subjectCode, exam, totalMarks, marks,
-    department, year, section, ) => {
+    department, year, section,semester ) => {
     return async (dispatch) => {
         try {
             await axios({
                 method: 'Post',
                 url: url + "/api/faculty/uploadMarks",
                 data: {
-                    subjectCode, exam, totalMarks, marks, department, year, section,
+                    subjectCode, exam, totalMarks, marks, department, year, section,semester
                     }
             })
             alert("Mark uploaded successfully")

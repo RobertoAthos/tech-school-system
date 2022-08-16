@@ -342,15 +342,15 @@ module.exports = {
             if (!isValid) {
                 return res.status(400).json(errors)
             }
-            const { /* totalLectures, */ department, subjectCode,
+            const { totalLectures, department, subjectCode,
                 subjectName, year } = req.body
-            const subject = await Subject.findOne({ subjectName })
+            const subject = await Subject.findOne({ subjectCode })
             if (subject) {
-                errors.subjectName = "Given Subject is already added"
+                errors.subjectCode = "Given Subject is already added"
                 return res.status(400).json(errors)
             }
             const newSubject = await new Subject({
-               /*  totalLectures, */
+                totalLectures,
                 department,
                 subjectCode,
                 subjectName,

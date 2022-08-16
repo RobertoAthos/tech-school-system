@@ -159,7 +159,7 @@ module.exports = {
             if (!isValid) {
                 return res.status(400).json(errors);
             }
-            const { subjectCode, exam, totalMarks, marks, department, year,
+            const { subjectCode, exam, totalMarks, marks, department, semester,
                 section } = req.body
             const subject = await Subject.findOne({ subjectCode})
             const isAlready = await Mark.find({ exam, department, section, subjectCode:subject._id })
@@ -174,7 +174,7 @@ module.exports = {
                     exam,
                     department,
                     section,
-                   
+                    semester,
                     marks: marks[i].value,
                     totalMarks
                 })

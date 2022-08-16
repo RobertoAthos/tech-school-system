@@ -64,12 +64,12 @@ module.exports = {
                 result: attendence.map(att => {
                     let res = {};
                     res.attendence = ((att.lectureAttended / att.totalLecturesByFaculty) * 100).toFixed(2)
-                   /*  res.subjectCode = att.subject.subjectCode */
+                    res.subjectCode = att.subject.subjectCode
                     res.subjectName = att.subject.subjectName
                     res.maxHours = att.subject.totalLectures
                     res.absentHours = att.totalLecturesByFaculty - att.lectureAttended
                     res.lectureAttended = att.lectureAttended
-                    /* res.totalLecturesByFaculty = att.totalLecturesByFaculty */
+                    res.totalLecturesByFaculty = att.totalLecturesByFaculty
                     return res
                 })
             })
@@ -392,6 +392,30 @@ module.exports = {
             const CycleTest2 = getMarks.filter((obj) => {
                 return obj.exam === "CycleTest2"
             })
+            const CycleTest3 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest3"
+            })
+            const CycleTest4 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest4"
+            })
+            const CycleTest5 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest5"
+            })
+            const CycleTest6 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest6"
+            })
+            const CycleTest7 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest7"
+            })
+            const CycleTest8 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest8"
+            })
+            const CycleTest9 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest9"
+            })
+            const CycleTest10 = getMarks.filter((obj) => {
+                return obj.exam === "CycleTest10"
+            })
             const Semester = getMarks.filter((obj) => {
                 return obj.exam === "Semester"
             })
@@ -399,6 +423,14 @@ module.exports = {
                 result: {
                     CycleTest1,
                     CycleTest2,
+                    CycleTest3,
+                    CycleTest4,
+                    CycleTest5,
+                    CycleTest6,
+                    CycleTest7,
+                    CycleTest8,
+                    CycleTest9,
+                    CycleTest10,
                     Semester
                     
             }})

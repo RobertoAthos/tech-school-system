@@ -72,6 +72,14 @@ const AdminAddSubject = () => {
                                         {error.subjectCode && (<div className="invalid-feedback">{error.subjectCode}</div>)}
                                     </div>
                                     <div className="form-group">
+                                        <label htmlFor="totalLectures">Total de Bimestres</label>
+                                        <input onChange={(e) => setTotalLectures(e.target.value)} type="number" className={classnames("form-control",
+                                            {
+                                                'is-invalid': error.totalLectures
+                                            })} id="totalLectures" />
+                                        {error.totalLectures && (<div className="invalid-feedback">{error.totalLectures}</div>)}
+                                    </div>
+                                    <div className="form-group">
                                         <label htmlFor="departmentId">Departamento</label>
                                         <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                             {
