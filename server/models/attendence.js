@@ -17,6 +17,9 @@ const attendenceSchema = new Schema({
     lectureAttended: {
         type: Number,
         default:0
+    },
+    dob:{
+        type:String
     }
 })
 

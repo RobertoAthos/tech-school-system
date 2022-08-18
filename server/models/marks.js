@@ -30,6 +30,9 @@ const markSchema = new Schema({
     },
     section: {
         type:String
+    },
+    dob:{
+        type:String
     }
 })
 

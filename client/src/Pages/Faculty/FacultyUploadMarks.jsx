@@ -84,20 +84,6 @@ const FacultyUploadMarks = () => {
                                 {error.department && (<div classNameName="invalid-feedback">{error.department}</div>)}
                             </div>
                             <div className="form-group">
-                                <label htmlFor="semesterId">Bimestre</label>
-                                <select onChange={(e) => setSemester(e.target.value)} className={classnames("form-control",
-                                    {
-                                        'is-invalid': error.semester
-                                    })} id="semesterId">
-                                    <option>Select</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                                {error.semester && (<div classNameName="invalid-feedback">{error.semester}</div>)}
-                            </div>
-                            <div className="form-group">
                                 <label htmlFor="yearId">Ano</label>
                                 <select onChange={(e) => setYear(e.target.value)} className={classnames("form-control",
                                     {
@@ -204,7 +190,20 @@ const FacultyUploadMarks = () => {
                                 {errorHelper.totalMarks && (<div classNameName="invalid-feedback">{errorHelper.totalMarks}</div>)}
                             </div>
                             </div>
-
+                            <div className="form-group">
+                                <label htmlFor="semesterId">Bimestre</label>
+                                <select onChange={(e) => setSemester(e.target.value)} className={classnames("form-control",
+                                    {
+                                        'is-invalid': error.semester
+                                    })} id="semesterId">
+                                    <option>Selecione</option>
+                                    <option value="1">1° Bimestre</option>
+                                    <option value="2">2° Bimestre</option>
+                                    <option value="3">3° Bimestre</option>
+                                    <option value="4">4° Bimestre</option>
+                                </select>
+                                {error.semester && (<div classNameName="invalid-feedback">{error.semester}</div>)}
+                            </div>
                           <div className="student-grades">
                           <table className="table">
                                 <thead>

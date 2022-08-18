@@ -160,24 +160,24 @@ export const facultyUpdate = (updatedData) => {
 }
 
 export const markAttendence = (selectedStudents, subjectCode, department, year,
-           section) => {
-    return async(dispatch) => {
-        try {
-                await axios({
-                method: 'Post',
-                    url: url + "/api/faculty/markAttendence",
-                data: { selectedStudents, subjectCode, department, year, section}
-                })
-            alert("attendence has been marked successfully")
-            dispatch({
-                type: "HELPER",
-                payload: true
-            })
-        }
-        catch (err) {
-           console.log("Error in marking attendence, faculty action", err.message)
-        }
-    }
+    section,dob) => {
+return async(dispatch) => {
+ try {
+         await axios({
+         method: 'Post',
+             url: url + "/api/faculty/markAttendence",
+         data: { selectedStudents, subjectCode, department, year, section,dob}
+         })
+     alert("attendence has been marked successfully")
+     dispatch({
+         type: "HELPER",
+         payload: true
+     })
+ }
+ catch (err) {
+    console.log("Error in marking attendence, faculty action", err.message)
+ }
+}
 }
 
 export const uploadMarks = (subjectCode, exam, totalMarks, marks,
@@ -206,7 +206,6 @@ export const uploadMarks = (subjectCode, exam, totalMarks, marks,
         }
     }
 }
-
 export const setFacultyUser = data => {
     return {
         type: SET_FACULTY,

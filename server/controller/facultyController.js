@@ -97,27 +97,23 @@ module.exports = {
     },
     markAttendence: async (req, res, next) => {
         try {
-            const { selectedStudents, /* subjectCode, */ department,
+            const { selectedStudents, department,
                 year,
-                section } = req.body
-            
-           /*  const sub = await Subject.findOne({ subjectCode }) */
+                section,dob } = req.body
 
-            //All Students
             const allStudents = await Student.find({ department, year, section })
             
             var filteredArr = allStudents.filter(function (item) {
                 return selectedStudents.indexOf(item.id) === -1
             });
 
-            
-            //Attendence mark karne wale log nahi
             for (let i = 0; i < filteredArr.length; i++) {
-                const pre = await Attendence.findOne({ student: filteredArr[i]._id, /* subject: sub._id */ })
+                const pre = await Attendence.findOne({ student: filteredArr[i]._id, /* subject: sub._id */dob })
                 if (!pre) {
                     const attendence = new Attendence({
                         student: filteredArr[i],
                         /* subject: sub._id */
+                        dob
                     })
                     attendence.totalLecturesByFaculty += 1
                     await attendence.save()
@@ -128,19 +124,15 @@ module.exports = {
                 }
             }
             for (var a = 0; a < selectedStudents.length; a++) {
-                const pre = await Attendence.findOne({ student: selectedStudents[a], /* subject: sub._id */ })
+                const pre = await Attendence.findOne({ student: selectedStudents[a], /* subject: sub._id */dob})
                 if (!pre) {
                     const attendence = new Attendence({
                         student: selectedStudents[a],
-                        /* subject: sub._id */
+                        dob
                     })
-                  /*   attendence.totalLecturesByFaculty += 1
-                    attendence.lectureAttended += 1 */
                     await attendence.save()
                 }
                 else {
-                   /*  pre.totalLecturesByFaculty += 1
-                    pre.lectureAttended += 1 */
                     await pre.save()
                 }
             }
@@ -150,7 +142,7 @@ module.exports = {
             console.log("error", err.message)
             return res.status(400).json({ message: `Error in marking attendence${err.message}` })
         }
-    },
+    }, 
     uploadMarks: async (req, res, next) => {
         try {
             const { errors, isValid } = validateFacultyUploadMarks(req.body);

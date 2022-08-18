@@ -101,11 +101,14 @@ const AdminAddFaculty = () => {
                                                 {
                                                     'is-invalid': error.department
                                                 })} id="departmentId">
-                                                <option>Select</option>
+                                                <option>Selecione</option>
                                                 <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
-                                        <option value="fundamental 1">Fundamental 1</option>
-                                        <option value="fundamental 2">Fundamental 2</option>
-                                        <option value="ensino Médio">Ensino Médio</option>
+                                                <option value="fundamental 1">Fundamental 1</option>
+                                                <option value="fundamental 2">Fundamental 2</option>
+                                                <option value="fundamental 1 e 2">Fundamental 1 e 2</option>
+                                                <option value="fundamental 1,2 e ensino médio">Fundamental 1,2 e ensino médio</option>
+                                                <option value="ensino Médio">Ensino Médio</option>
+                                                <option value="outro...">Outro...</option>
                                             </select>
                                             {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                         </div>

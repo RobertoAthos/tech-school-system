@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import classnames from 'classnames'
 import {fetchStudents,markAttendence } from '../redux/action/facultyAction'
 import FacultyHomeHelper from '../Components/FacultyHomeHelper'
-import { useHistory } from 'react-router-dom'
+import { useHistory,Link } from 'react-router-dom'
 import '../Style/Attendence.css'
 
 const AttendenceFaculty = () => {
@@ -19,6 +19,7 @@ const AttendenceFaculty = () => {
     const [flag, setFlag] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
     const [isLoading2, setIsLoading2] = useState(false)
+    const [dob, setDob] = useState('')
 
     const handleInputChange = (e) => {
         const tempCheck = checkedValue
@@ -54,12 +55,10 @@ const AttendenceFaculty = () => {
         
     }, [store.error, store.faculty.fetchedStudentsHelper])
 
- 
-
     const secondFormHandler = (e) => {
         e.preventDefault()
         setIsLoading2(true)
-        dispatch(markAttendence(checkedValue, subjectCode, department, year, section))
+        dispatch(markAttendence(checkedValue, subjectCode, department, year, section,dob))
         setCheckedValue([])
         
     }
@@ -175,16 +174,25 @@ const AttendenceFaculty = () => {
                                     }
                                 </tbody>
                             </table>
+                            <div class="form-group">
+                                            <label htmlFor="dobId">Data de entrada</label>
+                                            <input onChange={(e) => setDob(e.target.value)} type="date" className={classnames("form-control",
+                                                {
+                                                    'is-invalid': error.dob
+                                                })} id="dobId" />
+                                            {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
+                                        </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-1">
                                     {
                                         isLoading2 && <div class="spinner-border text-primary" role="status">
-                                            <span class="sr-only">Loading...</span>
+                                            <span class="sr-only">Carregando...</span>
                                         </div>
                                     }
                                 </div>
+                               
                             </div>
-                            {!isLoading2 && <button type="submit" className="btn btn-info ml-1  ">Submit</button>}
+                            {!isLoading2 && <button type="submit" className="btn btn-info ml-1  ">Enviar presenças</button>}
                         </form>
                     </div>
                 </div>

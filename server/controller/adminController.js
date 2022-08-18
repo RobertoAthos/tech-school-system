@@ -273,8 +273,17 @@ module.exports = {
             else if (department === "fundamental 2") {
                 departmentHelper = "03"
             }
-            else if (department === "ensino médio") {
+            else if (department === "fundamental 1 e 2") {
                 departmentHelper = "04"
+            }
+            else if (department === "fundamental 1,2 e ensino médio") {
+                departmentHelper = "05"
+            }
+            else if (department === "ensino médio") {
+                departmentHelper = "06"
+            }
+            else if (department === "outro...") {
+                departmentHelper = "07"
             }
             const faculties = await Faculty.find({ department })
             let helper;
