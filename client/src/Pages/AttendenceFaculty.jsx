@@ -21,6 +21,29 @@ const AttendenceFaculty = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isLoading2, setIsLoading2] = useState(false)
     const [dob, setDob] = useState('')
+    const [presence,setPresence]= useState('')
+
+    useEffect(() => {
+        if (store.error || !store.faculty.fetchedStudentsHelper) {
+            setIsLoading(false)
+        }
+        
+    }, [store.error, store.faculty.fetchedStudentsHelper])
+
+    const secondFormHandler = (e) => {
+        e.preventDefault()
+        setIsLoading2(true)
+        dispatch(markAttendence(checkedValue, subjectCode, department, year, section,dob,presence))
+        setCheckedValue([])
+        
+    }
+
+    useEffect(() => {
+        if (store.faculty.fetchedStudentsHelper) {
+            setIsLoading2(false)
+        }
+        
+    },[store.faculty.fetchedStudentsHelper])
 
     const handleInputChange = (e) => {
         const tempCheck = checkedValue
@@ -28,7 +51,7 @@ const AttendenceFaculty = () => {
         if (e.target.checked)
         {
             tempCheck.push(e.target.value)
-            
+            setPresence('Presente')
         }
         else {
             index = tempCheck.indexOf(e.target.value)
@@ -36,7 +59,7 @@ const AttendenceFaculty = () => {
         }
         setCheckedValue(tempCheck)
     }
-    
+
     useEffect(() => {
         if (store.error) {
             setError(store.error)
@@ -50,27 +73,6 @@ const AttendenceFaculty = () => {
        
     }
 
-    useEffect(() => {
-        if (store.error || !store.faculty.fetchedStudentsHelper) {
-            setIsLoading(false)
-        }
-        
-    }, [store.error, store.faculty.fetchedStudentsHelper])
-
-    const secondFormHandler = (e) => {
-        e.preventDefault()
-        setIsLoading2(true)
-        dispatch(markAttendence(checkedValue, subjectCode, department, year, section,dob))
-        setCheckedValue([])
-        
-    }
-
-    useEffect(() => {
-        if (store.faculty.fetchedStudentsHelper) {
-            setIsLoading2(false)
-        }
-        
-    },[store.faculty.fetchedStudentsHelper])
 
     useEffect(() => {
         dispatch(fetchAttendence())  
@@ -168,7 +170,7 @@ const AttendenceFaculty = () => {
                                         store.faculty.fetchedStudents.map((obj, index) =>
                                             <tr key={index}>
                                                 <div className="check-box-input">
-                                                    <input className="form-check-input" type="checkbox" value={obj._id} onChange={handleInputChange} id="defaultCheck1" />
+                                                    <input className="form-check-input" type="checkbox" value={obj.name} onChange={handleInputChange} id="defaultCheck1" />
                                                 </div>
                                                 <td>{obj.name}</td>
                                             </tr>
@@ -185,7 +187,7 @@ const AttendenceFaculty = () => {
                                             {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
                                         </div>
                                         <table className="table border">
-                                <thead>
+                              {/*   <thead>
                                     <tr>
                                         <th scope="col">S.No</th>
                                         <th scope="col">Aluno</th>
@@ -204,7 +206,7 @@ const AttendenceFaculty = () => {
                                             </tr>
                                         )
                                     }
-                                </tbody>
+                                </tbody> */}
                             </table>
                             <div class="row justify-content-center">
                                 <div class="col-md-1">
