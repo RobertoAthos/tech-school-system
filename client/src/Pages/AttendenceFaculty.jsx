@@ -45,20 +45,15 @@ const AttendenceFaculty = () => {
         
     },[store.faculty.fetchedStudentsHelper])
 
-    const handleInputChange = (e) => {
+    const handleInputChangePresence = (e) => {
         const tempCheck = checkedValue
-        let index
-        if (e.target.checked)
-        {
+        if (e.target.checked){
             tempCheck.push(e.target.value)
             setPresence('Presente')
         }
-        else {
-            index = tempCheck.indexOf(e.target.value)
-            tempCheck.splice(index,1)
-        }
         setCheckedValue(tempCheck)
     }
+
 
     useEffect(() => {
         if (store.error) {
@@ -170,8 +165,9 @@ const AttendenceFaculty = () => {
                                         store.faculty.fetchedStudents.map((obj, index) =>
                                             <tr key={index}>
                                                 <div className="check-box-input">
-                                                    <input className="form-check-input" type="checkbox" value={obj.name} onChange={handleInputChange} id="defaultCheck1" />
+                                                    <input className="form-check-input-present" type="checkbox" value={obj.name} onChange={handleInputChangePresence} id="defaultCheck1" />
                                                 </div>
+
                                                 <td>{obj.name}</td>
                                             </tr>
                                         )

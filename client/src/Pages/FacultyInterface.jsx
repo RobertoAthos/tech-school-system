@@ -28,9 +28,7 @@ const FacultyInterface = () => {
                                 <div className="col-md-7">
                                    <TodoTasks/>
                                 </div>
-                                <div className="card-link">
-                                    <Link to='/faculty/attendence'>Todas as Presenças</Link>
-                                </div>
+                    
                 </div>
 
             </> : (history.push('/'))}
