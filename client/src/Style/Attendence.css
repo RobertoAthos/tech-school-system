@@ -20,3 +20,16 @@
     border-radius: 15px;
     color: white;
 }
+.attendence-infos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.attendence-infos-container{
+    margin-top: 2rem;
+}
+.check-box-input>input{
+    width: 30px;
+    height: 30px;
+}

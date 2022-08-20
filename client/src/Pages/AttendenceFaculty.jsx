@@ -5,6 +5,7 @@ import {fetchStudents,markAttendence } from '../redux/action/facultyAction'
 import FacultyHomeHelper from '../Components/FacultyHomeHelper'
 import { useHistory,Link } from 'react-router-dom'
 import '../Style/Attendence.css'
+import {fetchAttendence} from '../redux/action/facultyAction'
 
 const AttendenceFaculty = () => {
     const store = useSelector((store) => store)
@@ -27,6 +28,7 @@ const AttendenceFaculty = () => {
         if (e.target.checked)
         {
             tempCheck.push(e.target.value)
+            
         }
         else {
             index = tempCheck.indexOf(e.target.value)
@@ -69,9 +71,14 @@ const AttendenceFaculty = () => {
         }
         
     },[store.faculty.fetchedStudentsHelper])
-    
+
+    useEffect(() => {
+        dispatch(fetchAttendence())  
+      },[])
+
     return (
         <section className='attendence-faculty-section'>
+          
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
                 {store.faculty.fetchedStudentsHelper && <div className="attendence-faculty-container ">
@@ -147,27 +154,22 @@ const AttendenceFaculty = () => {
                 </div>}
 
 
-                {!store.faculty.fetchedStudentsHelper && <div className="row  justify-content-center mt-4">
-                    <div className="col-md-4">
+                {!store.faculty.fetchedStudentsHelper && <div className="attendence-infos">
+                    <div className="attendence-infos-container">
                         <form onSubmit={secondFormHandler}>
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <td><div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                        </div></td>
-                                        <th scope="col">Número de Registro</th>
                                         <th scope="col">Aluno</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
                                         store.faculty.fetchedStudents.map((obj, index) =>
-                                            <tr>
-                                                <td><div className="form-check">
+                                            <tr key={index}>
+                                                <div className="check-box-input">
                                                     <input className="form-check-input" type="checkbox" value={obj._id} onChange={handleInputChange} id="defaultCheck1" />
-                                                </div></td>
-                                                <td key={index}>{obj.registrationNumber}</td>
+                                                </div>
                                                 <td>{obj.name}</td>
                                             </tr>
                                         )
@@ -175,13 +177,35 @@ const AttendenceFaculty = () => {
                                 </tbody>
                             </table>
                             <div class="form-group">
-                                            <label htmlFor="dobId">Data de entrada</label>
+                                            <label htmlFor="dobId">Data da chamada</label>
                                             <input onChange={(e) => setDob(e.target.value)} type="date" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.dob
                                                 })} id="dobId" />
                                             {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
                                         </div>
+                                        <table className="table border">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Aluno</th>
+                                        <th scope="col">Data</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        store.student.attendence.map((res, index) =>
+                                            <tr key={index}>
+                                                <th scope="row">{index + 1}</th>
+                                                <td>{res.student}</td>
+                                                <td>{res.dob}</td>
+                                                
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
                             <div class="row justify-content-center">
                                 <div class="col-md-1">
                                     {

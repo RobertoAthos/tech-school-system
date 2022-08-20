@@ -3,7 +3,7 @@ const passport = require('passport')
 const router = express.Router()
 const upload = require('../utils/multer')
 
-const { checkAttendence, getAllStudents, getStudentByName, studentLogin,
+const { /* checkAttendence, */ getAllStudents, getStudentByName, studentLogin,
     updatePassword, forgotPassword, getStudentByRegName,
     postOTP, postPrivateChat, getPrivateChat, differentChats,
     previousChats, updateProfile, getAllSubjects, getMarks } = require('../controller/studentController')
@@ -34,7 +34,7 @@ router.get('/getMarks', passport.authenticate('jwt', { session: false }),getMark
 
 router.get('/getAllSubjects', passport.authenticate('jwt', { session: false }), getAllSubjects)
 
-router.get('/checkAttendence', passport.authenticate('jwt', { session: false }), checkAttendence)
+/* router.get('/checkAttendence', passport.authenticate('jwt', { session: false }), checkAttendence) */
 
 //HELPER ROUTES
 router.post('/getAllStudents', passport.authenticate('jwt', { session: false }), getAllStudents)

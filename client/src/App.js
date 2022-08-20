@@ -113,7 +113,7 @@ function App() {
           <Route exact path="/admin/allFaculties" component={AdminGetAllFaculty} />
           <Route exact path="/admin/allStudents" component={AdminGetAllStudent} />
           <Route exact path="/admin/allSubject" component={AdminGetAllSubject} />
-          <Route exact path="/student/attendence" component={StudentAttendencePage} />
+          <Route exact path="/faculty/attendence" component={StudentAttendencePage} />
           <Route exact path="/student/updatePassword" component={StudentUpdatePassword} />
           <Route exact path="/student/testPerformance" component={StudentTestPerformace} />
           <Route exact path="/faculty/updatePassword" component={FacultyUpdatePassword} />

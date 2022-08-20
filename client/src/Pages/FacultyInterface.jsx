@@ -16,7 +16,7 @@ const FacultyInterface = () => {
                 <div className="faculty-interface-container">
                     <div className="faculty-interface-content">
         
-                                    <div className="card" style={{ width: "18rem" }}>
+                                    <div className="card">
                                         <img className="card-img-top" src={store.faculty.faculty.faculty.avatar} alt="Card image cap" />
                                         <div className="card-body">
                                             <h5 className="card-title">{store.faculty.faculty.faculty.name}</h5>
@@ -27,6 +27,9 @@ const FacultyInterface = () => {
                                 </div>
                                 <div className="col-md-7">
                                    <TodoTasks/>
+                                </div>
+                                <div className="card-link">
+                                    <Link to='/faculty/attendence'>Todas as Presenças</Link>
                                 </div>
                 </div>
 

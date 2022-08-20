@@ -99,7 +99,7 @@ module.exports = {
         try {
             const { selectedStudents, department,
                 year,
-                section,dob } = req.body
+                section,dob,presence } = req.body
 
             const allStudents = await Student.find({ department, year, section })
             
@@ -108,12 +108,13 @@ module.exports = {
             });
 
             for (let i = 0; i < filteredArr.length; i++) {
-                const pre = await Attendence.findOne({ student: filteredArr[i]._id, /* subject: sub._id */dob })
+                const pre = await Attendence.findOne({ student: filteredArr[i]._id, /* subject: sub._id */dob,presence })
                 if (!pre) {
                     const attendence = new Attendence({
                         student: filteredArr[i],
                         /* subject: sub._id */
-                        dob
+                        dob,
+                        presence
                     })
                     attendence.totalLecturesByFaculty += 1
                     await attendence.save()
@@ -124,11 +125,12 @@ module.exports = {
                 }
             }
             for (var a = 0; a < selectedStudents.length; a++) {
-                const pre = await Attendence.findOne({ student: selectedStudents[a], /* subject: sub._id */dob})
+                const pre = await Attendence.findOne({ student : selectedStudents[a] , /* subject: sub._id */dob,presence})
                 if (!pre) {
                     const attendence = new Attendence({
                         student: selectedStudents[a],
-                        dob
+                        dob,
+                        presence
                     })
                     await attendence.save()
                 }
@@ -143,6 +145,34 @@ module.exports = {
             return res.status(400).json({ message: `Error in marking attendence${err.message}` })
         }
     }, 
+    checkAttendence: async (req, res, next) => {
+        try {
+            const studentId = req.user._id
+            const attendence = await Attendence.find({ student}).populate('attendence')
+            if (!attendence) {
+                res.status(400).json({ message: "Attendence not found" })
+            }
+            res.status(200).json({
+                result: attendence.map(att => {
+                    let res = {};
+                    /* res.attendence = ((att.lectureAttended / att.totalLecturesByFaculty) * 100).toFixed(2)
+                    res.subjectCode = att.subject.subjectCode
+                    res.subjectName = att.subject.subjectName
+                    res.maxHours = att.subject.totalLectures
+                    res.absentHours = att.totalLecturesByFaculty - att.lectureAttended
+                    res.lectureAttended = att.lectureAttended
+                    res.totalLecturesByFaculty = att.totalLecturesByFaculty */
+                    res.student,
+                    res.dob
+                    return res
+                })
+            })
+        }
+        catch (err) {
+            console.log("Error in fetching attendence",err.message)
+        }
+        
+    },
     uploadMarks: async (req, res, next) => {
         try {
             const { errors, isValid } = validateFacultyUploadMarks(req.body);

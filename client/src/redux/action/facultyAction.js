@@ -18,7 +18,12 @@ const fetchStudentsHelper = (data) => {
         payload: data
     }
 }
-
+const fetchAttendenceHelper = (data) => {
+    return {
+        type: "GET_ATTENDENCE",
+        payload: data
+    }
+}
 const subjectCodeListHelper = (data) => {
     return {
         type: "GET_SUBJECTCODE_LIST",
@@ -135,7 +140,21 @@ export const fetchStudents = (department, year, section) => {
         }
     }
 }
-
+export const fetchAttendence = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios({
+                method: 'Get',
+                url: url + "/api/faculty/checkAttendence"
+            })
+            dispatch(fetchAttendenceHelper(data.result))
+        }
+        catch (err) {
+            console.log("Error in sending message", err.message)
+        }
+    
+    }
+}
 const facultyUpdateProfileFlag = (data) => {
     return {
         type: "FACULTY_UPDATE_PROFILE_FLAG",
@@ -160,13 +179,13 @@ export const facultyUpdate = (updatedData) => {
 }
 
 export const markAttendence = (selectedStudents, subjectCode, department, year,
-    section,dob) => {
+    section,dob,presence) => {
 return async(dispatch) => {
  try {
          await axios({
          method: 'Post',
              url: url + "/api/faculty/markAttendence",
-         data: { selectedStudents, subjectCode, department, year, section,dob}
+         data: { selectedStudents, subjectCode, department, year, section,dob,presence}
          })
      alert("attendence has been marked successfully")
      dispatch({
@@ -222,3 +241,4 @@ export const facultyLogout = () =>
         // Set current user to {} which will set isAuthenticated to false
         dispatch(setFaculty({}));
     };
+
