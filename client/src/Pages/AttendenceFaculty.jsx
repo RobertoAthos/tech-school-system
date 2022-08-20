@@ -195,7 +195,7 @@ const AttendenceFaculty = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        store.student.attendence.map((res, index) =>
+                                        store.faculty.attendence.map((res, index) =>
                                             <tr key={index}>
                                                 <th scope="row">{index + 1}</th>
                                                 <td>{res.student}</td>
