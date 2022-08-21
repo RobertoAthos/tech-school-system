@@ -5,7 +5,8 @@ import {fetchStudents,markAttendence } from '../redux/action/facultyAction'
 import FacultyHomeHelper from '../Components/FacultyHomeHelper'
 import { useHistory,Link } from 'react-router-dom'
 import '../Style/Attendence.css'
-import {fetchAttendence} from '../redux/action/facultyAction'
+import '../Style/Loader.css'
+import '../Style/Loader2.css'
 
 const AttendenceFaculty = () => {
     const store = useSelector((store) => store)
@@ -67,11 +68,6 @@ const AttendenceFaculty = () => {
         dispatch(fetchStudents(department, year, section))
        
     }
-
-
-    useEffect(() => {
-        dispatch(fetchAttendence())  
-      },[])
 
     return (
         <section className='attendence-faculty-section'>
@@ -140,7 +136,7 @@ const AttendenceFaculty = () => {
                                 <div class="col-md-1">
                                     {
                                         isLoading && <div class="spinner-border text-primary" role="status">
-                                            <span class="sr-only">Carregando...</span>
+                                            <div class="loader-2">Cerregando...</div>
                                         </div>
                                     }
                                 </div>
@@ -183,7 +179,7 @@ const AttendenceFaculty = () => {
                                             {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
                                         </div>
                                         <table className="table border">
-                              {/*   <thead>
+                               {/*  <thead>
                                     <tr>
                                         <th scope="col">S.No</th>
                                         <th scope="col">Aluno</th>
@@ -208,7 +204,7 @@ const AttendenceFaculty = () => {
                                 <div class="col-md-1">
                                     {
                                         isLoading2 && <div class="spinner-border text-primary" role="status">
-                                            <span class="sr-only">Carregando...</span>
+                                            <div class="loader">Cerregando...</div>
                                         </div>
                                     }
                                 </div>

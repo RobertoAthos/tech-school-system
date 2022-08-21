@@ -26,7 +26,7 @@ const markSchema = new Schema({
         type:String
     },
     semester: {
-        type:Number
+        type:String
     },
     section: {
         type:String

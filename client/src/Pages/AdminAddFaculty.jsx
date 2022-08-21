@@ -6,6 +6,7 @@ import { adminAddFaculty } from '../redux/action/adminAction'
 import AdminHomeHelper from '../Components/AdminHomeHelper'
 import '../Style/AdminAddFaculty.css'
 import Button from '../Components/Button/Button'
+import '../Style/Loader2.css'
 
 
 const AdminAddFaculty = () => {
@@ -141,7 +142,7 @@ const AdminAddFaculty = () => {
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Cerregando...</span>
+                                                <div class="loader-2">Cerregando...</div>
                                             </div>
                                         }
                                     </div>

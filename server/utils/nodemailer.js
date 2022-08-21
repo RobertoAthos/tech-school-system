@@ -20,8 +20,8 @@ const sendMail = async (email, secretToken, mode) => {
                 to: email,
                 subject: "OTP Submission",
                 html: `
-        <h1>Reset Password</h1>
-        <p> Here is your otp to change the password ${secretToken} </p>
+        <h1>Atualizar Senha | Tech School</h1>
+        <p> Aqui está o código de verificação para atualizar sua senha ${secretToken} </p>
       `
             })
         }

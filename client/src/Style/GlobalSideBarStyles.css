@@ -2,9 +2,9 @@
     background-color: #0D43FF;
     width: 100%;
     max-width: 300px;
+    height: 100vh;
     top: 0%;
     left: 0;
-    height: 100vh;
     color: white;
 }
 .nav-item>a{

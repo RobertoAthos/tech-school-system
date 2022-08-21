@@ -30,12 +30,12 @@ module.exports = {
 
         const student = await Student.findOne({ registrationNumber })
         if (!student) {
-            errors.registrationNumber = 'Registration number not found';
+            errors.registrationNumber = 'Número de Registro inválido';
             return res.status(404).json(errors);
         }
         const isCorrect = password == student.password
         if (!isCorrect) {
-            errors.password = 'Invalid Credentials';
+            errors.password = 'Credenciais inválidas';
             return res.status(404).json(errors);
         }
         const payload = { id: student.id, student };
@@ -115,20 +115,20 @@ module.exports = {
             }
             const { registrationNumber, oldPassword, newPassword, confirmNewPassword } = req.body
             if (newPassword !== confirmNewPassword) {
-                errors.confirmNewpassword = 'Password Mismatch'
+                errors.confirmNewpassword = 'Senhas não se coincidem'
                 return res.status(400).json(errors);
             }
             const student = await Student.findOne({ registrationNumber })
-            const isCorrect = await bcrypt.compare(oldPassword, student.password)
+            const isCorrect = oldPassword == faculty.password
             if (!isCorrect) {
-                errors.oldPassword = 'Invalid old Password';
+                errors.oldPassword = 'Senha antiga inválida';
                 return res.status(404).json(errors);
             }
-            let hashedPassword;
-            hashedPassword = await bcrypt.hash(newPassword, 10)
-            student.password = hashedPassword;
+            let Password;
+            Password = await newPassword 
+            student.password = Password;
             await student.save()
-            res.status(200).json({ message: "Password Updated" })
+            res.status(200).json({ message: "Senha atualizada com sucesso" })
         }
         catch (err) {
             console.log("Error in updating password", err.message)
@@ -143,7 +143,7 @@ module.exports = {
             const { email } = req.body
             const student = await Student.findOne({ email })
             if (!student) {
-                errors.email = "Email Not found, Provide registered email"
+                errors.email = "Email não encontrado,coloque um email já registrado"
                 return res.status(400).json(errors)
             }
             function generateOTP() {
@@ -158,7 +158,7 @@ module.exports = {
             student.otp = OTP
             await student.save()
             await sendEmail(student.email, OTP, "OTP")
-            res.status(200).json({ message: "check your registered email for OTP" })
+            res.status(200).json({ message: "Verifique o código de verificação no seu email" })
             const helper = async () => {
                 student.otp = ""
                 await student.save()
@@ -168,7 +168,7 @@ module.exports = {
             }, 300000);
         }
         catch (err) {
-            console.log("Error in sending email", err.message)
+            console.log("Erro na hora de enviar o email", err.message)
         }
     },
     getStudentByRegName: async (req, res, next) => {
@@ -193,22 +193,22 @@ module.exports = {
             }
             const { email, otp, newPassword, confirmNewPassword } = req.body
             if (newPassword !== confirmNewPassword) {
-                errors.confirmNewPassword = 'Password Mismatch'
+                errors.confirmNewPassword = 'Senhas não se coincidem'
                 return res.status(400).json(errors);
             }
             const student = await Student.findOne({ email });
             if (student.otp !== otp) {
-                errors.otp = "Invalid OTP, check your email again"
+                errors.otp = "Código de verificação inválido, verifique seu email novamente"
                 return res.status(400).json(errors)
             }
             let hashedPassword;
             hashedPassword = await bcrypt.hash(newPassword, 10)
             student.password = hashedPassword;
             await student.save()
-            return res.status(200).json({ message: "Password Changed" })
+            return res.status(200).json({ message: "Senha atualizada com sucesso" })
         }
         catch (err) {
-            console.log("Error in submitting otp", err.message)
+            console.log("Erro na hora de enviar o código", err.message)
             return res.status(200)
         }
     },
@@ -363,7 +363,7 @@ module.exports = {
                 res.status(200).json(student)
         }
         catch (err) {
-            console.log("Error in updating Profile", err.message)
+            console.log("Erro na hora de atualiar perfil", err.message)
         }
     },
     getAllSubjects: async (req, res, next) => {

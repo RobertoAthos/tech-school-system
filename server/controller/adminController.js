@@ -25,12 +25,12 @@ module.exports = {
             
             //VALIDATE REQUEST BODY
             if (!name || !email || !dob || !department || !contactNumber){
-                return res.status(400).json({success:false, message:"Probably you have missed certain fields"})
+                return res.status(400).json({success:false, message:"Provavelmente você não completou alguns campos !"})
             }
 
             const admin = await Admin.findOne({ email })
             if (admin) {
-                return res.status(400).json({success:false, message:"Email already exist"})
+                return res.status(400).json({success:false, message:"Email já existe"})
             }
             const avatar = gravatar.url(email, { s: '200', r: 'pg', d: 'mm' })
             let departmentHelper;
@@ -82,7 +82,7 @@ module.exports = {
                 dob,
             })
             await newAdmin.save()
-            return res.status(200).json({ success: true, message: "Admin registerd successfully", response: newAdmin })
+            return res.status(200).json({ success: true, message: "Admin registrado com sucesso !", response: newAdmin })
         }
         catch (error) {
             return res.status(400).json({ success: false, message: error.message })
@@ -93,7 +93,7 @@ module.exports = {
             const { branch, name } = req.body
             const students = await Student.find({})
             if (students.length === 0) {
-                return res.status(404).json({ message: "No students found" })
+                return res.status(404).json({ message: "Alunos não encontrados" })
             }
             res.status(200).json({ result: students })
         }
@@ -114,12 +114,12 @@ module.exports = {
 
             const admin = await Admin.findOne({ registrationNumber })
             if (!admin) {
-                errors.registrationNumber = 'Registration number not found';
+                errors.registrationNumber = 'Número de Registro não é válido';
                 return res.status(404).json(errors);
             }
             const isCorrect = password == admin.password
             if (!isCorrect) {
-                errors.password = 'Invalid Credentials';
+                errors.password = 'Credenciais inválidas';
                 return res.status(404).json(errors);
             }
             const payload = {
@@ -159,7 +159,7 @@ module.exports = {
 
             const student = await Student.findOne({ email })
             if (student) {
-                errors.email = "Email already exist"
+                errors.email = "Email já existe"
                 return res.status(400).json(errors)
             }
             const avatar = gravatar.url(email, { s: '200', r: 'pg', d: 'mm' })
@@ -236,7 +236,7 @@ module.exports = {
             const { branch, name } = req.body
             const students = await Student.find({})
             if (students.length === 0) {
-                return res.status(404).json({ message: "No students found" })
+                return res.status(404).json({ message: "Nenhum aluno foi encontrado" })
             }
             res.status(200).json({ result: students })
         }
@@ -255,7 +255,7 @@ module.exports = {
                 /* aadharCard, */ dob, gender } = req.body
             const faculty = await Faculty.findOne({ email })
             if (faculty) {
-                errors.email = 'Email already exist'
+                errors.email = 'Email já existe'
                 return res.status(400).json(errors)
             }
             const avatar = gravatar.url(req.body.email, {
@@ -327,7 +327,7 @@ module.exports = {
         }
         catch (err) {
             console.log("error", err.message)
-            res.status(400).json({ message: `error in adding new Faculty", ${err.message}` })
+            res.status(400).json({ message: `erro na hora de adicionar um novo professor", ${err.message}` })
         }
 
     },
@@ -335,12 +335,12 @@ module.exports = {
         try {
             const faculties = await Faculty.find({})
             if (faculties.length === 0) {
-                return res.status(404).json({ message: "No Record Found" })
+                return res.status(404).json({ message: "Não conseguimos achar" })
             }
             res.status(200).json({ result: faculties })
         }
         catch (err) {
-            res.status(400).json({ message: `error in getting new Faculty", ${err.message}` })
+            res.status(400).json({ message: `erro na hora de buscar um professor", ${err.message}` })
         }
 
     },
@@ -355,7 +355,7 @@ module.exports = {
                 subjectName, year } = req.body
             const subject = await Subject.findOne({ subjectCode })
             if (subject) {
-                errors.subjectCode = "Given Subject is already added"
+                errors.subjectCode = "Matéria já adicionada"
                 return res.status(400).json(errors)
             }
             const newSubject = await new Subject({
@@ -387,12 +387,12 @@ module.exports = {
         try {
             const allSubjects = await Subject.find({})
             if (!allSubjects) {
-                return res.status(404).json({ message: "You havent registered any subject yet." })
+                return res.status(404).json({ message: "Você ainda não registrou nenhuma matéria !" })
             }
             res.status(200).json(allSubjects)
         }
         catch (err) {
-            res.status(400).json({ message: `error in getting all Subjects", ${err.message}` })
+            res.status(400).json({ message: `erro na hora de buscar todas as matérias", ${err.message}` })
         }
     },
     getAllFaculty: async (req, res, next) => {
@@ -402,7 +402,7 @@ module.exports = {
             res.status(200).json({ result: allFaculties })
         }
         catch (err) {
-            console.log("Error in gettting all faculties", err.message)
+            console.log("Erro na hora de buscar todos os professores", err.message)
         }
     },
     getAllStudent: async (req, res, next) => {
@@ -412,7 +412,7 @@ module.exports = {
             res.status(200).json({ result: allStudents })
         }
         catch (err) {
-            console.log("Error in gettting all students", err.message)
+            console.log("Erro na hora de buscar todos os alunos", err.message)
         }
     },
     getAllSubject: async (req, res, next) => {
@@ -422,7 +422,7 @@ module.exports = {
             res.status(200).json({ result: allSubjects })
         }
         catch (err) {
-            console.log("Error in gettting all students", err.message)
+            console.log("erro na hora de buscar todas as matérias", err.message)
         }
     }
 }

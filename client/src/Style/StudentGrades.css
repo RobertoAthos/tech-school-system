@@ -9,6 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-y: scroll;
 }
 .obs-text{
     margin-top: 1rem;
@@ -20,12 +21,11 @@
     font-size: 1.3rem;
 }
 .infos{
-    width: 180px;
-    height: 200px;
+    width: 300px;
+    height: 250px;
     background-color: white;
     box-shadow: 1px 5px 10px 5px rgba(0, 0, 0, 0.13) ;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -33,14 +33,22 @@
     margin: 15px;
     border-top: 10px solid #00C0FF;
     line-height: 30px;
+    border-radius: 8px;
 }
 .infos>h3{
     font-size: 1.5rem;
 }
-.table>.note>p{
-    font-size: 1.7rem;
-    margin: 8px 0px 8px 0px;
+
+.table>.semester>table{
+    width: 100%;
+    display: flex;
+    justify-content: left; 
+    align-items: center;
 }
-.table>div>span{
-    font-size: 1.5rem;
+.table>.semester>table>tr>th{
+    font-size: 1.3rem;
+    color: #0D43FF;
+}
+.table>.semester>table>tr>td{
+    font-size: 1.5rem; 
 }

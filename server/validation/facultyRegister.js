@@ -11,30 +11,30 @@ const validateFacultyRegisterInput = (data) => {
     data.dob = !isEmpty(data.dob) ? data.dob : '';
 
     if (!Validator.isLength(data.name, { min: 2, max: 30 })) {
-        errors.name = 'Name must be between 2 and 30 characters';
+        errors.name = 'Nome deve ter de 2 à 30 caractéres';
     }
 
     if (Validator.isEmpty(data.name)) {
-        errors.name = 'Name field is required';
+        errors.name = 'Nome é obrigatório';
     }
 
     if (!Validator.isEmail(data.email)) {
-        errors.email = 'Email is invalid';
+        errors.email = 'Email inválido';
     }
 
     if (Validator.isEmpty(data.email)) {
-        errors.email = 'Email field is required';
+        errors.email = 'Email é obrigatório';
     }
 
     if (Validator.isEmpty(data.department)) {
-        errors.department = 'Department field is required';
+        errors.department = 'Departamento é obrigatório';
     }
 
     if (Validator.isEmpty(data.dob)) {
-        errors.dob = 'DOB field is required';
+        errors.dob = 'Data de entrada é obrigatório';
     }
     if (Validator.isEmpty(data.designation)) {
-        errors.designation = 'Designation field is required';
+        errors.designation = 'Função é obrigatório';
     }
 
     return {

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { adminLogin } from '../redux/action/adminAction'
 import classnames from 'classnames'
 import '../Style/LoginPage.css'
-
+import '../Style/Loader.css'
 
 
 const LoginPage = () => {
@@ -68,7 +68,7 @@ const LoginPage = () => {
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Carregando...</span>
+                                                <div class="loader">Carregando...</div>
                                             </div>
                                         }
                                     </div>

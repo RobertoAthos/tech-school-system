@@ -17,13 +17,13 @@ const Home = () => {
           <HomeHelper />
           <div className="student-container">
             <div className="cards-container">
-              <div className="card">
+              {/* <div className="card">
                 <li className="nav-item-links">
                   <Link to="/studentDetails">
                     <li><AiOutlineWechat className="icon"/>Chat</li>
                   </Link>
                 </li>
-              </div>
+              </div> */}
               <div className="card">
                 <li className="nav-item-links">
                   <Link to="/student/updatePassword">

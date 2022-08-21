@@ -10,19 +10,19 @@ const validateFacultyUpdatePassword = (data) => {
 
 
     if (Validator.isEmpty(data.oldPassword)) {
-        errors.oldPassword = 'Old Password field is required';
+        errors.oldPassword = 'Senha antiga é obrigatório';
     }
 
     if (!Validator.isLength(data.newPassword, { min: 6, max: 30 })) {
-        errors.newPassword = 'Password must contain at least six character';
+        errors.newPassword = 'Senha deve conter pelo menos 6 catactéres';
     }
 
     if (Validator.isEmpty(data.newPassword)) {
-        errors.newPassword = 'New Password field is required';
+        errors.newPassword = 'Nova senha é obrigatório';
     }
 
     if (Validator.isEmpty(data.confirmNewPassword)) {
-        errors.confirmNewPassword = 'Confirm New Password field is required';
+        errors.confirmNewPassword = 'Confirmar nova senha é obrigatório';
     }
 
     return {

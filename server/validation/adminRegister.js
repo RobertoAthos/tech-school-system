@@ -10,28 +10,28 @@ const validateAdminRegisterInput = (data) => {
     data.dob = !isEmpty(data.dob) ? data.dob : '';
     data.contactNumber = !isEmpty(data.contactNumber) ? data.contactNumber : '';
     if (!Validator.isLength(data.name, { min: 2, max: 30 })) {
-        errors.name = 'Name must be between 2 and 30 characters';
+        errors.name = 'Nome deve ter de 2 à 30 caractéres';
     }
-    if (!Validator.isLength(data.contactNumber, { min: 10, max: 10 })) {
-        errors.contactNumber = 'ContactNumber must be of 10 digit';
+    if (!Validator.isLength(data.contactNumber, { min: 5, max: 10 })) {
+        errors.contactNumber = 'Número de contato deve ter no máximo 10 dígitos';
     }
     if (Validator.isEmpty(data.name)) {
-        errors.name = 'Name field is required';
+        errors.name = 'Nome é obrigatório';
     }
     if (!Validator.isEmail(data.email)) {
-        errors.email = 'Email is invalid';
+        errors.email = 'Email inválido';
     }
     if (Validator.isEmpty(data.email)) {
-        errors.email = 'Email field is required';
+        errors.email = 'Email é obrigatório';
     }
     if (Validator.isEmpty(data.department)) {
-        errors.department = 'Department field is required';
+        errors.department = 'Departamento é obrigatório';
     }
     if (Validator.isEmpty(data.dob)) {
-        errors.dob = 'DOB field is required';
+        errors.dob = 'Data de entrada é obrigatório';
     }
     if (Validator.isEmpty(data.contactNumber)) {
-        errors.contactNumber = 'DOB field is required';
+        errors.contactNumber = 'Número de contato é obrigatório';
     }
     return {
         errors,

@@ -10,23 +10,23 @@ const validateOTP = (data) => {
 
 
     if (!Validator.isLength(data.newPassword, { min: 6, max: 30 })) {
-        errors.newPassword = 'Password must contain at least six character';
+        errors.newPassword = 'Senha deve conter pelo menos 6 caractéres';
     } 
 
     if (!Validator.isLength(data.otp, { min: 6, max: 6})) {
-        errors.otp = 'OTP must contain six character ';
+        errors.otp = 'Código de verificação deve conter no mínimo 6 caractéres ';
     } 
 
     if (Validator.isEmpty(data.otp)) {
-        errors.otp = 'OTP field is required';
+        errors.otp = 'Código de verificação é obrigatório';
     }
 
     if (Validator.isEmpty(data.newPassword)) {
-        errors.newPassword = 'New Password field is required';
+        errors.newPassword = 'Nova senha é obrigatório';
     }
 
     if (Validator.isEmpty(data.confirmNewPassword)) {
-        errors.confirmNewPassword = 'Confirm New Password field is required';
+        errors.confirmNewPassword = 'Confirmar nova senha é obrigatório';
     }
 
     return {

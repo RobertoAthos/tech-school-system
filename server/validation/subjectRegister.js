@@ -12,7 +12,7 @@ const validateSubjectRegisterInput = (data) => {
 
 
     if (Validator.isEmpty(data.subjectName)) {
-        errors.subjectName = ' Subject Name field is required';
+        errors.subjectName = ' Nome da matéria é obrigatório';
     }
 
    /*  if (Validator.isEmpty(data.subjectCode)) {
@@ -20,11 +20,11 @@ const validateSubjectRegisterInput = (data) => {
     } */
 
     if (Validator.isEmpty(data.year)) {
-        errors.year = 'Year field is required';
+        errors.year = 'Ano é obrigatório';
     }
 
     if (Validator.isEmpty(data.department)) {
-        errors.department = 'Department field is required';
+        errors.department = 'Departamento é obrigatório';
     }
 
   /*   if (Validator.isEmpty(data.totalLectures)) {

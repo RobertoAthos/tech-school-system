@@ -64,11 +64,11 @@ const Home = () => {
                 <li><GiPencilRuler className="icon"/>Notas Gerais</li>
               </Link>
             </li>
-            <li className="nav-item">
+           {/*  <li className="nav-item">
                   <Link to="/studentDetails">
                     <li><BsFillChatQuoteFill className='icon'/>Nova Conversa ({store.student.newerChats.length})</li>
                   </Link>
-                </li>
+                </li> */}
           </ul>
         </div>
       </nav>

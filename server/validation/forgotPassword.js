@@ -8,11 +8,11 @@ const validateUserUpdatePassword = (data) => {
 
 
     if (!Validator.isEmail(data.email)) {
-        errors.email = 'Email is invalid';
+        errors.email = 'Email inválido';
     }
 
     if (Validator.isEmpty(data.email)) {
-        errors.email = 'Email field is required';
+        errors.email = 'Email é obrigatório';
     }
 
     return {

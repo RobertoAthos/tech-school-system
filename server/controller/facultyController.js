@@ -32,12 +32,12 @@ module.exports = {
 
             const faculty = await Faculty.findOne({ registrationNumber })
             if (!faculty) {
-                errors.registrationNumber = 'Registration number not found';
+                errors.registrationNumber = 'Número de Registro inválido';
                 return res.status(404).json(errors);
             }
             const isCorrect = password == faculty.password
             if (!isCorrect) {
-                errors.password = 'Invalid Credentials';
+                errors.password = 'Credenciais inválidas';
                 return res.status(404).json(errors);
             }
             const payload = {
@@ -56,7 +56,7 @@ module.exports = {
             );
         }
         catch (err) {
-            console.log("Error in faculty login", err.message)
+            console.log("Erro na hora de fazer o login", err.message)
         }
     },
     fetchStudents: async (req, res, next) => {
@@ -68,12 +68,12 @@ module.exports = {
             const { department, year, section } = req.body;
             const subjectList = await Subject.find({ department, year })
             if (subjectList.length === 0) {
-                errors.department = 'No Subject found in given department';
+                errors.department = 'Nenhuma matéria encontrada nesse departamento';
                 return res.status(404).json(errors);
             }
             const students = await Student.find({ department, year, section })
             if (students.length === 0) {
-                errors.department = 'No Student found'
+                errors.department = 'Nenhum aluno encontrado'
                 return res.status(404).json(errors);
             }
             res.status(200).json({
@@ -91,7 +91,7 @@ module.exports = {
             })
         }
         catch (err) {
-            console.log("error in faculty fetchStudents", err.message)
+            console.log("Erro na hora de buscar todos os alunos", err.message)
         }
 
     },
@@ -138,11 +138,11 @@ module.exports = {
                     await pre.save()
                 }
             }
-            res.status(200).json({ message: "done" })
+            res.status(200).json({ message: "Pronto" })
         }
         catch (err) {
             console.log("error", err.message)
-            return res.status(400).json({ message: `Error in marking attendence${err.message}` })
+            return res.status(400).json({ message: `Erro na hora de fazer a chamada${err.message}` })
         }
     }, 
     checkAttendence: async (req, res, next) => {
@@ -163,7 +163,7 @@ module.exports = {
             })
         }
         catch (err) {
-            console.log("Error in fetching attendence",err.message)
+            console.log("Erro na hora de ver todas as chamadas",err.message)
         }
         
     },
@@ -178,9 +178,9 @@ module.exports = {
             const { subjectCode, exam, totalMarks, marks, department, semester,
                 section } = req.body
             const subject = await Subject.findOne({ subjectCode})
-            const isAlready = await Mark.find({ exam, department, section, subjectCode:subject._id })
+            const isAlready = await Mark.find({ exam, department, section, subjectCode:subject._id,semester })
             if (isAlready.length !== 0) {
-                errors.exam = "You have already uploaded marks of given exam"
+                errors.exam = "Você já enviou notas dessa matéria"
                 return res.status(400).json(errors);
             }
             for (var i = 0; i < marks.length; i++) {
@@ -196,10 +196,10 @@ module.exports = {
                 })
                 await newMarks.save()
             }
-            res.status(200).json({message:"Marks uploaded successfully"})
+            res.status(200).json({message:"Notas enviadas com sucesso"})
         }
         catch (err) {
-            console.log("Error in uploading marks",err.message)
+            console.log("Erro na hora de lançar as notas",err.message)
         }
         
     },
@@ -207,12 +207,12 @@ module.exports = {
         try {
             const allSubjects = await Subject.find({})
             if (!allSubjects) {
-                return res.status(404).json({ message: "You havent registered any subject yet." })
+                return res.status(404).json({ message: "Você ainda não registrou nenhuma matéria." })
             }
             res.status(200).json({ allSubjects })
         }
         catch (err) {
-            res.status(400).json({ message: `error in getting all Subjects", ${err.message}` })
+            res.status(400).json({ message: `Erro em carregas as matérias", ${err.message}` })
         }
     },
     updatePassword: async (req, res, next) => {
@@ -223,23 +223,23 @@ module.exports = {
             }
             const { registrationNumber, oldPassword, newPassword, confirmNewPassword } = req.body
             if (newPassword !== confirmNewPassword) {
-                errors.confirmNewPassword = 'Password Mismatch'
+                errors.confirmNewPassword = 'Senhas não se coincidem'
                 return res.status(404).json(errors);
             }
             const faculty = await Faculty.findOne({ registrationNumber })
-            const isCorrect = await bcrypt.compare(oldPassword, faculty.password)
+            const isCorrect = oldPassword == faculty.password
             if (!isCorrect) {
-                errors.oldPassword = 'Invalid old Password';
+                errors.oldPassword = 'Senha antiga inválida';
                 return res.status(404).json(errors);
             }
-            let hashedPassword;
-            hashedPassword = await bcrypt.hash(newPassword, 10)
-            faculty.password = hashedPassword;
+            let Password;
+            Password = await newPassword 
+            faculty.password = Password;
             await faculty.save()
-            res.status(200).json({ message: "Password Updated" })
+            res.status(200).json({ message: "Senha Atualizada com sucesso" })
         }
         catch (err) {
-            console.log("Error in updating password", err.message)
+            console.log("Erro na hora de atualizar a senha", err.message)
         }
     },
     forgotPassword: async (req, res, next) => {
@@ -251,7 +251,7 @@ module.exports = {
             const { email } = req.body
             const faculty = await Faculty.findOne({ email })
             if (!faculty) {
-                errors.email = "Email Not found, Provide registered email"
+                errors.email = "Email não encontrado, insira um email válido"
                 return res.status(400).json(errors)
             }
             function generateOTP() {
@@ -266,7 +266,7 @@ module.exports = {
             faculty.otp = OTP
             await faculty.save()
             await sendEmail(faculty.email, OTP, "OTP")
-            res.status(200).json({ message: "check your registered email for OTP" })
+            res.status(200).json({ message: "Cheque seu email para o código de verificação" })
             const helper = async () => {
                 faculty.otp = ""
                 await faculty.save()
@@ -276,7 +276,7 @@ module.exports = {
             }, 300000);
         }
         catch (err) {
-            console.log("Error in sending email", err.message)
+            console.log("Erro na hora de mandar o email", err.message)
         }
     },
     postOTP: async (req, res, next) => {
@@ -287,22 +287,22 @@ module.exports = {
             }
             const { email, otp, newPassword, confirmNewPassword } = req.body
             if (newPassword !== confirmNewPassword) {
-                errors.confirmNewPassword = 'Password Mismatch'
+                errors.confirmNewPassword = 'Senhas não se coincidem'
                 return res.status(400).json(errors);
             }
             const faculty = await Faculty.findOne({ email });
             if (faculty.otp !== otp) {
-                errors.otp = "Invalid OTP, check your email again"
+                errors.otp = "código de verificação inválido, verifique seu email denovo !"
                 return res.status(400).json(errors)
             }
             let hashedPassword;
             hashedPassword = await bcrypt.hash(newPassword, 10)
             faculty.password = hashedPassword;
             await faculty.save()
-            return res.status(200).json({ message: "Password Changed" })
+            return res.status(200).json({ message: "Senha Atualizada" })
         }
         catch (err) {
-            console.log("Error in submitting otp", err.message)
+            console.log("Erro de envio do código de verificação", err.message)
             return res.status(200)
         }
 
@@ -331,7 +331,7 @@ module.exports = {
             res.status(200).json(faculty)
         }
         catch (err) {
-            console.log("Error in updating Profile", err.message)
+            console.log("Erro na hora de atualizar perfil", err.message)
         }
     }
 }

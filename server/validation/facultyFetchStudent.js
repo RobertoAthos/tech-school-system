@@ -11,15 +11,15 @@ const validateFetchStudentsInput = (data) => {
 
 
     if (Validator.isEmpty(data.department)) {
-        errors.department = 'Department field is required';
+        errors.department = 'Departamento é obrigatório';
     }
 
     if (Validator.isEmpty(data.year)) {
-        errors.year = 'Year field is required';
+        errors.year = 'Ano é obrigatório';
     }
 
     if (Validator.isEmpty(data.section)) {
-        errors.section = 'Section field is required';
+        errors.section = 'Período é obrigatório';
     }
 
     return {

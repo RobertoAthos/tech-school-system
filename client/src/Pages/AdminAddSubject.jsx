@@ -122,7 +122,7 @@ const AdminAddSubject = () => {
                                         <div class="col-md-1">
                                             {
                                                 isLoading && <div class="spinner-border text-primary" role="status">
-                                                    <span class="sr-only">Carregando...</span>
+                                                    <div class="loader-2">Cerregando...</div>
                                                 </div>
                                             }
                                         </div>

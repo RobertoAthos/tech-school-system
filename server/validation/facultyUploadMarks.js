@@ -9,14 +9,14 @@ const validateFacultyUploadMarks = (data) => {
     data.totalMarks = !isEmpty(data.totalMarks) ? data.totalMarks : '';
 
     if (Validator.isEmpty(data.subjectCode)) {
-        errors.subjectCode = 'Subject Code field is required';
+        errors.subjectCode = 'Código da matéria é obrigatório';
     }
 
     if (Validator.isEmpty(data.exam)) {
-        errors.exam = 'Exam field is required';
+        errors.exam = 'Matéria é obrigatório';
     }
     if (Validator.isEmpty(data.totalMarks)) {
-        errors.totalMarks = 'Total marks field is required';
+        errors.totalMarks = 'Valor da prova é obrigatório';
     }
 
     return {

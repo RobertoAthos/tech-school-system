@@ -6,7 +6,7 @@ import { studentLogin } from '../redux/action/studentAction'
 import classnames from 'classnames'
 import '../Style/FacultyStudentLogin.css'
 import Bg from '../Style/Images/Saly-103d.svg'
-
+import '../Style/Loader.css'
 
 
 const FacultyStudentLoginPags = () => {
@@ -122,7 +122,7 @@ const FacultyStudentLoginPags = () => {
                                         <div class="col-md-1">
                                             {
                                                 isStudentLoading && <div class="spinner-border text-primary" role="status">
-                                                    <span class="sr-only">Carregando...</span>
+                                                    <div class="loader">Carregando...</div>
                                                 </div>
                                             }
                                         </div>
@@ -162,7 +162,7 @@ const FacultyStudentLoginPags = () => {
                                         <div class="col-md-1">
                                             {
                                                 isFacultyLoading && <div class="spinner-border text-primary" role="status">
-                                                    <span class="sr-only">Carregando...</span>
+                                                    <div class="loader">Carregando...</div>
                                                 </div>
                                             }
                                         </div>

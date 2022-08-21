@@ -189,7 +189,6 @@ const FacultyUploadMarks = () => {
                                     value={totalMarks} onChange={(e) => setTotalMarks(e.target.value)} />
                                 {errorHelper.totalMarks && (<div classNameName="invalid-feedback">{errorHelper.totalMarks}</div>)}
                             </div>
-                            </div>
                             <div className="form-group">
                                 <label htmlFor="semesterId">Bimestre</label>
                                 <select onChange={(e) => setSemester(e.target.value)} className={classnames("form-control",
@@ -204,6 +203,8 @@ const FacultyUploadMarks = () => {
                                 </select>
                                 {error.semester && (<div classNameName="invalid-feedback">{error.semester}</div>)}
                             </div>
+                            </div>
+                            
                           <div className="student-grades">
                           <table className="table">
                                 <thead>

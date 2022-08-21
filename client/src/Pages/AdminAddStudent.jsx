@@ -7,6 +7,7 @@ import AdminHomeHelper from '../Components/AdminHomeHelper'
 import Button from '../Components/Button/Button'
 import '../Style/AdminAddStudent.css'
 import {AiOutlinePlus} from 'react-icons/ai'
+import '../Style/Loader2.css'
 
 
 const AdminAddStudent = () => {
@@ -179,7 +180,7 @@ const AdminAddStudent = () => {
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Carregando...</span>
+                                                <div class="loader-2">Cerregando...</div>
                                             </div>
                                         }
                                     </div>
