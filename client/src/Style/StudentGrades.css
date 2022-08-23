@@ -1,6 +1,7 @@
 .grades-section{
     display: flex;
 }
+
 .grades-container{
     width: 100%;
     height: 100vh;
@@ -11,6 +12,7 @@
     justify-content: center;
     overflow-y: scroll;
 }
+
 .obs-text{
     margin-top: 1rem;
     width: 100%;
@@ -35,6 +37,7 @@
     line-height: 30px;
     border-radius: 8px;
 }
+
 .infos>h3{
     font-size: 1.5rem;
 }

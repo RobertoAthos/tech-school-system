@@ -7,6 +7,8 @@ import classnames from 'classnames'
 import '../Style/FacultyStudentLogin.css'
 import Bg from '../Style/Images/Saly-103d.svg'
 import '../Style/Loader.css'
+import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 
 
 const FacultyStudentLoginPags = () => {
@@ -90,7 +92,8 @@ const FacultyStudentLoginPags = () => {
 
     return (
         <section className="main-login-section">
-            <div className="login-container">
+            <div className="login-container" id='desktop-container'>
+                <Slide left>
                 <div className="login-content">
                     <h1 className='title'>Tech School</h1>
                     <div className="box-wrap">
@@ -176,10 +179,14 @@ const FacultyStudentLoginPags = () => {
                     </div>
                    
                 </div>
+            
+                </Slide>
 
+                <Fade bottom>
                 <div className="img-background">
                     <img src={Bg} alt="Cartoon de uma pessoa estudando" />
                 </div>
+                </Fade>
             </div>
         </section>
     )

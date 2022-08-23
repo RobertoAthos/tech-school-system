@@ -4,25 +4,61 @@
     width: 100%;
     height: 100vh;
 }
+.mobile-login{
+    display: none;
+}
+@media(max-width:850px){
+    .main-login-section{
+        height: 100%;
+    }
+}
+
 .login-container{
     width: 100%;
     height: 100vh;
     max-width: 1200px;
     margin: auto;
 }
+@media(max-width:1200px){
+    .login-container{
+        max-width: 1000px;
+    }
+}
+@media(max-width:1000px){
+    .login-container{
+        max-width: 100%;
+        width: 100%;
+    }
+}
 .login-content{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: left;
     align-items: center;
+}
+@media(max-width:1000px){
+    .login-content{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .box-wrap{
     width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
+}
+@media(max-width:850px){
+   .box-wrap{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 40px;
+   }
 }
 .inputs-login-container{
     margin-right: 2rem;
@@ -57,6 +93,17 @@
     font-size: 1rem;
     margin: 10px;
 }
+@media(max-width:500px){
+    .card-box{
+         width: 320px;
+         margin-bottom: 1rem;
+         text-align: center;
+         margin-left: 2rem;
+    }
+    .card-box>form>.form-group>input{
+     width: 300px;
+    }
+ }
 .img-background>img{
     width: 500px;
     height: 500px;
@@ -68,10 +115,21 @@
     right: 0px;
     z-index: 0;
 }
+@media(max-width:1200px){
+    .img-background{
+        display: none;
+    }
+}
 .title{
     width: 100%;
     color: white;
     font-size: 3rem;
     text-align: left;
     margin: 3rem 0px 3rem 0px;
+}
+@media(max-width:850px){
+   .title{
+    text-align: center;
+    margin: 2rem 0px 2rem 0px;
+   }
 }

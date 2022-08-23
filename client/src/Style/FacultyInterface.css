@@ -1,6 +1,11 @@
 .faculty-interface{
     display: flex;
 }
+@media(max-width:1000px){
+    .faculty-interface{
+        flex-direction: column;
+    }
+}
 .card>img{
     width: 80px;
     height: 80px;

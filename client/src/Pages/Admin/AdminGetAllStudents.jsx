@@ -80,7 +80,7 @@ const AdminGetAllFaculty = () => {
                                     <div class="col-md-1">
                                         {
                                             isLoading && <div class="spinner-border text-primary" role="status">
-                                                <span class="sr-only">Loading...</span>
+                                                <div className='loader-2'>Loading...</div>
                                             </div>
                                         }
                                     </div>

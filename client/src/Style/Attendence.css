@@ -1,6 +1,11 @@
 .attendence-faculty-section{
     display: flex;
 }
+@media(max-width:1000px){
+    .attendence-faculty-section{
+        flex-direction: column;
+    }
+}
 .attendence-faculty-container{
     width: 100%;
     max-width: 1200px;
@@ -19,6 +24,12 @@
     padding: 25px;
     border-radius: 15px;
     color: white;
+}
+@media(max-width:600px){
+    .attendence-faculty-content{
+        max-width: 320px;
+        margin-top: 4rem;
+    }
 }
 .attendence-infos{
     width: 100%;

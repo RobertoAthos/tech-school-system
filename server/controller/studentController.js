@@ -119,7 +119,7 @@ module.exports = {
                 return res.status(400).json(errors);
             }
             const student = await Student.findOne({ registrationNumber })
-            const isCorrect = oldPassword == faculty.password
+            const isCorrect = oldPassword == student.password
             if (!isCorrect) {
                 errors.oldPassword = 'Senha antiga inválida';
                 return res.status(404).json(errors);

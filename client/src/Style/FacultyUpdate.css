@@ -1,6 +1,11 @@
 .faculty-update-section{
     display: flex;
 }
+@media(max-width:1000px){
+    .faculty-update-section{
+        flex-direction: column;
+    }
+}
 .faculty-update-container{
     width: 100%;
     max-width: 1200px;
@@ -18,4 +23,13 @@
     padding: 25px;
     border-radius: 15px;
     color: white;
+}
+@media(max-width:600px){
+    .faculty-update-content{
+       max-width: 320px;
+       margin-top: 4rem;
+    }
+    form>.form-group>input,select{
+        width: 280px;
+    }
 }

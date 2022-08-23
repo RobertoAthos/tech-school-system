@@ -1,12 +1,23 @@
 .upload-grades-section{
     display: flex;
 }
+@media(max-width:1000px){
+    .upload-grades-section{
+        flex-direction: column;
+    }
+}
 .upload-grades-container {
     width: 100%;
     max-width: 1200px;
     margin: auto;
     display: flex;
     justify-content: center;
+}
+@media(max-width:600px){
+    .upload-grades-container{
+        max-width: 320px;
+        margin-top: 4rem;
+    }
 }
 .upload-grades-content{
     width: 100%;
@@ -19,6 +30,15 @@
     padding: 25px;
     border-radius: 15px;
     color: white;
+}
+@media(max-width:600px){
+    .inputs-grades{
+        flex-direction: column;
+        max-width: 320px;
+    }
+    .inputs-grades>.form-group>input,select{
+        width: 300px;
+    }
 }
 .info-grades>.form-group>input{
     width:280px;

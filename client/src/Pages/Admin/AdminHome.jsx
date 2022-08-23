@@ -5,6 +5,7 @@ import AdminHomeHelper from "../../Components/AdminHomeHelper";
 import '../../Style/AdminHome.css'
 import {IoIosPeople} from 'react-icons/io'
 import {GiTeacher,GiBookshelf} from 'react-icons/gi'
+import Fade from 'react-reveal/Fade';
 
 const AdminHome = () => {
   const store = useSelector((store) => store);
@@ -16,6 +17,7 @@ const AdminHome = () => {
         <>
           <AdminHomeHelper />
 
+          <Fade bottom>
           <div className="admin-content">
             
             <div className="cards-container">
@@ -43,6 +45,7 @@ const AdminHome = () => {
               </div>
             </div>
               </div>
+          </Fade>
         </>
       ) : (
         history.push("/")
