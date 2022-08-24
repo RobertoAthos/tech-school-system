@@ -1,6 +1,11 @@
 .student-home{
     display: flex;
 }
+@media(max-width:1000px){
+    .student-home{
+        flex-direction: column;
+    }
+}
 
 .card>.nav-item-links>a{
     padding: 15px;
@@ -19,6 +24,12 @@
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.144);
     transition: 300ms;
     cursor: pointer;
+}
+@media(max-width:1000px){
+    .card>.nav-item-links>a{
+        width: 180px;
+        height: 180px;
+    }
 }
 .card>.nav-item-links>a>li{
     display: flex;
