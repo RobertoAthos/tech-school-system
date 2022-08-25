@@ -70,6 +70,24 @@
     width: 350px;
     border: 1px solid rgb(191, 194, 197);
 }
+@media(max-width:414px){
+    .card-box{
+        width: 250px;
+        height: 350px;
+    }
+}
+@media(max-width:375px){
+    .card-box{
+        width: 200px;
+        height: 300px;
+    }
+    .card-box>form>.form-group>input{
+        width: 150px;
+    }
+    .card-box>form>.form-group{
+        margin: 0;
+    }
+}
 .login-button{
     width: 100%;
     display: flex;
@@ -89,6 +107,11 @@
     margin: 10px;
     color: #262930;
 }
+@media(max-width:375px){
+    h3{
+        margin: 5px;
+    }
+}
 .card-box>p{
     font-size: 1rem;
     margin: 10px;
@@ -99,6 +122,7 @@
          margin-bottom: 1rem;
          text-align: center;
          margin-left: 2rem;
+         padding: 50px;
     }
     .card-box>form>.form-group>input{
      width: 300px;
@@ -129,7 +153,6 @@
 }
 @media(max-width:850px){
    .title{
-    text-align: center;
-    margin: 2rem 0px 2rem 0px;
+    display: none;
    }
 }
