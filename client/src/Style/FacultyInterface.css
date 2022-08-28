@@ -1,6 +1,13 @@
 .faculty-interface{
     display: flex;
 }
+.faculty-interface-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 @media(max-width:1000px){
     .faculty-interface{
         flex-direction: column;
@@ -11,4 +18,9 @@
     height: 80px;
     object-fit: cover;
     border-radius: 100%;
+}
+.faculty-interface-content>.card{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
 }

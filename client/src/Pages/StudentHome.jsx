@@ -5,6 +5,7 @@ import HomeHelper from "../Components/HomeHelper";
 import "../Style/StudentHome.css";
 import {AiOutlineWechat} from 'react-icons/ai'
 import {MdUpdate} from 'react-icons/md'
+import TodoTasks from '../Components/TodoTasks'
 
 const Home = () => {
   const store = useSelector((store) => store);
@@ -30,6 +31,9 @@ const Home = () => {
                     <li><MdUpdate className="icon"/>Atualizar Senha</li>
                   </Link>
                 </li>
+              </div>
+              <div className="todo-tasks">
+                <TodoTasks/>
               </div>
             </div>
           </div>

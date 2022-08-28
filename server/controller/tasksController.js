@@ -1,42 +1,101 @@
+const Todo = require("../models/tasks");
 
-module.exports ={
-    Addtask: async (req, res) => {
-        try {
-            const task = await new Task(req.body).save();
-            res.send(task);
-        } catch (error) {
-            res.send(error);
-        }
-    },
-    
-    Findtask: async (req, res) => {
-        try {
-            const tasks = await Task.find();
-            res.send(tasks);
-        } catch (error) {
-            res.send(error);
-        }
-    },
-    
-    Updatetask: async (req, res) => {
-        try {
-            const task = await Task.findOneAndUpdate(
-                { _id: req.params.id },
-                req.body
-            );
-            res.send(task);
-        } catch (error) {
-            res.send(error);
-        }
-    },
-    
-    Deletetask: async (req, res) => {
-        try {
-            const task = await Task.findByIdAndDelete(req.params.id);
-            res.send(task);
-        } catch (error) {
-            res.send(error);
-        }
-    },
-    
-}
+exports.getAllTodos = async (req, res) => {
+  try {
+    const todos = await Todo.find({}).sort({ createdAt: -1 });
+
+    try {
+      res.status(200).json({
+        message: "Get all todos successfully.",
+        todos: todos,
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getATodo = async (req, res) => {
+  try {
+    const { id: todoId } = req.params;
+    const todo = await Todo.findOne({ _id: todoId });
+
+    if (!todo) {
+      return res.status(404).json({ msg: `No task with id: ${todoId}` });
+    } else {
+      res.status(200).json({
+        message: "Get a todo successfully.",
+        todo: todo,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.createATodo = async (req, res) => {
+  const newTodo = new Todo(req.body);
+  await newTodo.save((err) => {
+    if (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    } else {
+      res.status(201).json({
+        message: "Create a new todo successfully.",
+      });
+    }
+  });
+};
+
+exports.createManyTodos = async (req, res) => {
+  await Todo.insertMany(req.body, (err) => {
+    if (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    } else {
+      res.status(201).json({
+        message: "Create many new todos successfully.",
+      });
+    }
+  });
+};
+
+exports.updateATodo = async (req, res) => {
+  try {
+    const { id: todoId } = req.params;
+    const todo = await Todo.findByIdAndUpdate(todoId, req.body, { new: true, runValidators: true });
+
+    if (!todo) {
+      return res.status(404).json({ msg: `No todo with id: ${todoId}` });
+    } else {
+      res.status(200).json({
+        msg: `Todo with id: ${todoId} updated successfully.`,
+        todo: todo,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.deleteATodo = async (req, res) => {
+  try {
+    const { id: todoId } = req.params;
+    const todo = await Todo.findByIdAndDelete(todoId);
+
+    if (!todo) {
+      return res.status(404).json({ msg: `No todo with id: ${todoId}` });
+    } else {
+      res.status(200).json({
+        message: `Todo with id: ${todoId} deleted successfully.`,
+        todo: todo,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

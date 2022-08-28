@@ -1,0 +1,11 @@
+.task-form{
+    display: flex;
+    flex-direction: column;
+}
+textarea{
+    border: 1px solid rgb(191, 194, 197);
+    outline: 0;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 1rem 0px 1rem 0px;
+}

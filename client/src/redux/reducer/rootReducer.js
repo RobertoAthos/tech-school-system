@@ -4,12 +4,13 @@ import adminReducer from './adminReducer'
 import studentReducer from './studentReducer'
 import errorReducerHelper from './errorReducerHelper'
 import errorReducer from './errorReducer'
-
+import todosReducer from './todoReducer';
 
 export default combineReducers({
     faculty: facultyReducer,
     admin: adminReducer,
     student: studentReducer,
     error: errorReducer,
-    errorHelper: errorReducerHelper
+    errorHelper: errorReducerHelper,
+    todos: todosReducer,
 });
