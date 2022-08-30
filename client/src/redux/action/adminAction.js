@@ -125,7 +125,7 @@ export const adminAddFaculty = (facultyCredential) => {
                 data: facultyCredential
             })
             dispatch(adminAddFacultyFlag(true))
-            alert("Faculty Added Successfully")
+            alert("Professor Adionado com sucesso !")
         }
         catch (err) {
             dispatch({
@@ -145,7 +145,7 @@ export const adminAddStudent = (studentCredential) => {
                 data: studentCredential
             })
             dispatch(adminAddStudentFlag(true))
-            alert("Student Added Successfully")
+            alert("Aluno adicionado com sucesso")
         }
         catch (err) {
             dispatch({
@@ -165,7 +165,7 @@ export const adminAddSubject = (subjectCredential) => {
                 data: subjectCredential
             })
             dispatch(adminAddSubjectFlag(true))
-            alert("Subject Added Successfully")
+            alert("Matéria Adicionada com  Sucesso")
         }
         catch (err) {
             dispatch({
@@ -186,7 +186,7 @@ export const adminAddAdmin = (adminCredentails) => {
                 data: adminCredentails
             })
             dispatch(adminAddAdminFlag(true))
-            alert("Admin Added Successfully")
+            alert("Admin Adicionado com sucesso")
         }
         catch (err) {
             dispatch({

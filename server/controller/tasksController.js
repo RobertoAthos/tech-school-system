@@ -6,7 +6,7 @@ exports.getAllTodos = async (req, res) => {
 
     try {
       res.status(200).json({
-        message: "Get all todos successfully.",
+        message: "Tarefas carregadas com Sucesso.",
         todos: todos,
       });
     } catch (error) {
@@ -26,7 +26,7 @@ exports.getATodo = async (req, res) => {
       return res.status(404).json({ msg: `No task with id: ${todoId}` });
     } else {
       res.status(200).json({
-        message: "Get a todo successfully.",
+        message: "Tarefa carregada com sucesso.",
         todo: todo,
       });
     }
@@ -44,7 +44,7 @@ exports.createATodo = async (req, res) => {
       });
     } else {
       res.status(201).json({
-        message: "Create a new todo successfully.",
+        message: "Tarefa criada com sucesso",
       });
     }
   });
@@ -70,10 +70,10 @@ exports.updateATodo = async (req, res) => {
     const todo = await Todo.findByIdAndUpdate(todoId, req.body, { new: true, runValidators: true });
 
     if (!todo) {
-      return res.status(404).json({ msg: `No todo with id: ${todoId}` });
+      return res.status(404).json({ msg: `Não conseguimos encontrar a tarefa id: ${todoId}` });
     } else {
       res.status(200).json({
-        msg: `Todo with id: ${todoId} updated successfully.`,
+        msg: `Tarefa id: ${todoId} atualizada com sucesso.`,
         todo: todo,
       });
     }
@@ -91,7 +91,7 @@ exports.deleteATodo = async (req, res) => {
       return res.status(404).json({ msg: `No todo with id: ${todoId}` });
     } else {
       res.status(200).json({
-        message: `Todo with id: ${todoId} deleted successfully.`,
+        message: `Tarefa id: ${todoId} excluída com sucesso.`,
         todo: todo,
       });
     }

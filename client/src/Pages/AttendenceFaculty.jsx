@@ -96,7 +96,7 @@ const AttendenceFaculty = () => {
                                         'is-invalid': error.year
 
                                     })} id="yearId">
-                                    <option>Select</option>
+                                    <option>Selecione</option>
                                     <option value="1">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="2">1° ano ensino fundamental</option>
                                         <option value="3">2° ano ensino fundamental</option>
@@ -122,13 +122,10 @@ const AttendenceFaculty = () => {
                                         'is-invalid': error.section
 
                                     })} id="sectionId">
-                                    <option>Select</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
+                                    <option>Selecione</option>
+                                    <option value="MANHÃ">Manhã</option>
+                                    <option value="TARDE">Tarde</option>
+                                    <option value="NOITE">Noite</option>
                                 </select>
                                 {error.section && (<div classNameName="invalid-feedback">{error.section}</div>)}
                             </div>

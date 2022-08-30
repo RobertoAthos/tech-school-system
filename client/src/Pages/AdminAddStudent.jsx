@@ -100,7 +100,7 @@ const AdminAddStudent = () => {
                                                 <option value="maternal/jardin de infancia/alfabetização">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="fundamental 1">Fundamental 1</option>
                                         <option value="fundamental 2">Fundamental 2</option>
-                                        <option value="ensino Médio">Ensino Médio</option>
+                                        <option value="ensino médio">Ensino Médio</option>
                                             </select>
                                             {error.department && (<div className="invalid-feedback">{error.department}</div>)}
                                         </div>

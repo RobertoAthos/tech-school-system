@@ -61,6 +61,7 @@
 }
 .inputs-grades{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     background-color: #0C77E8;
     padding: 10px;

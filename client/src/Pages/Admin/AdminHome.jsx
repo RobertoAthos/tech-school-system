@@ -20,7 +20,7 @@ const AdminHome = () => {
 
           <Fade bottom>
           <div className="admin-content">
-            
+          
             <div className="cards-container">
               <div className="card">
                 <li className="card-link">
@@ -45,8 +45,8 @@ const AdminHome = () => {
                 </li>
               </div>
             </div>
-              </div>
-              
+            <TodoTasks/>
+              </div>  
           </Fade>
         </>
       ) : (

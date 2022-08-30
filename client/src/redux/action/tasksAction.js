@@ -6,7 +6,7 @@ export const getAllTodos = async (dispatch) => {
     dispatch({ type: GET_TODOS_REQUEST });
   
     try {
-      const res = await axios.get(apiUrl + "/api/v1/todos-all");
+      const res = await axios.get(apiUrl + "/todos-all");
       dispatch({ type: GET_TODOS_SUCCESS, payload: res.data });
     } catch (error) {
       dispatch({ type: GET_TODOS_FAILURE, payload: error });
@@ -18,7 +18,7 @@ export const getAllTodos = async (dispatch) => {
     dispatch({ type: POST_TODOS_REQUEST });
   
     try {
-      const res = await axios.post(apiUrl + "/api/v1/todo/new", {
+      const res = await axios.post(apiUrl + "/todo/new", {
         title: payload.todoTitle,
         description: payload.todoDescription,
       });
@@ -33,7 +33,7 @@ export const getAllTodos = async (dispatch) => {
     dispatch({ type: DELETE_TODOS_REQUEST });
   
     try {
-      const res = await axios.delete(apiUrl + "/api/v1/todo/" + payload.todoId);
+      const res = await axios.delete(apiUrl + "/todo/" + payload.todoId);
       dispatch({ type: DELETE_TODOS_SUCCESS, payload: res.data });
     } catch (error) {
       dispatch({ type: DELETE_TODOS_FAILURE, payload: error });

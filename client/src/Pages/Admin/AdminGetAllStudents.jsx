@@ -59,7 +59,7 @@ const AdminGetAllFaculty = () => {
                                         {
                                             'is-invalid': error.year
                                         })} id="yearId">
-                                        <option>Select</option>
+                                        <option>Selecione</option>
                                         <option value="1">Maternal/jardin de infancia/alfabetização</option>
                                         <option value="2">1° ano ensino fundamental</option>
                                         <option value="3">2° ano ensino fundamental</option>

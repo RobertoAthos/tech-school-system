@@ -15,24 +15,24 @@ const FacultyInterface = () => {
           <FacultyHomeHelper />
           <div className="faculty-interface-container">
             <div className="faculty-interface-content">
-              <div className="card">
-                <img
+            <div className="card">
+            <img
                   className="card-img-top"
                   src={store.faculty.faculty.faculty.avatar}
                   alt="Card image cap"
                 />
                 <div className="card-body">
                   <h5 className="card-title">
-                    {store.faculty.faculty.faculty.name}
-                  </h5>
-                  <h5 className="card-title">
                     {store.faculty.faculty.faculty.registrationNumber}
                   </h5>
                 </div>
+                
               </div>
             </div>
-            <div className="tasks-section">
+            <div className="task-section-container">
+            <div className="tasks-content">
               <TodoTasks />
+            </div>
             </div>
           </div>
         </>

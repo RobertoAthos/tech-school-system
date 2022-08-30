@@ -67,7 +67,7 @@ export const facultyUpdatePassword = (passwordData) => {
                 url: url + "/api/faculty/updatePassword",
                 data: passwordData
             })
-            alert("Password Updated Successfully")
+            alert("Senha Atualizada com sucesso !")
         }
         catch (err) {
             dispatch({
@@ -150,7 +150,7 @@ export const fetchAttendence = () => {
             dispatch(fetchAttendenceHelper(data.result))
         }
         catch (err) {
-            console.log("Error in sending message", err.message)
+            console.log("Erro em carregar as notas", err.message)
         }
     
     }
@@ -173,7 +173,7 @@ export const facultyUpdate = (updatedData) => {
             dispatch(facultyUpdateProfileFlag(true))
         }
         catch (err) {
-            console.log("Error in sending message", err.message)
+            console.log("Erro em atualizar perfil", err.message)
         }
     }
 }
@@ -187,7 +187,7 @@ return async(dispatch) => {
              url: url + "/api/faculty/markAttendence",
          data: { selectedStudents, subjectCode, department, year, section,dob,presence}
          })
-     alert("attendence has been marked successfully")
+     alert("Chamada feita com sucesso !")
      dispatch({
          type: "HELPER",
          payload: true
@@ -210,7 +210,7 @@ export const uploadMarks = (subjectCode, exam, totalMarks, marks,
                     subjectCode, exam, totalMarks, marks, department, year, section,semester
                     }
             })
-            alert("Mark uploaded successfully")
+            alert("Notas enviadas com sucesso !")
             dispatch({
                 type: "HELPER",
                 payload: true

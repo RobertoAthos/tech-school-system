@@ -27,3 +27,6 @@ input,select{
 .invalid-feedback{
     color: red;
 }
+textarea{
+    width: 400px;
+}
