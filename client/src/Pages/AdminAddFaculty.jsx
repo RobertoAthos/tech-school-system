@@ -90,7 +90,7 @@ const AdminAddFaculty = () => {
                                                 {
                                                     'is-invalid': error.designation
                                                 })} id="designationId">
-                                                <option>Select</option>
+                                                <option>Selecione</option>
                                                 <option value="Assistant Professor">Professor Assitente/Substituto</option>
                                                 <option value="Senior Professer">Professor principal</option>
                                             </select>

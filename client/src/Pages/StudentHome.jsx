@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import HomeHelper from "../Components/HomeHelper";
 import "../Style/StudentHome.css";
-import {AiOutlineWechat} from 'react-icons/ai'
-import {MdUpdate} from 'react-icons/md'
+import { AiOutlineWechat } from 'react-icons/ai'
+import { MdUpdate } from 'react-icons/md'
 import TodoTasks from '../Components/TodoTasks'
 
 const Home = () => {
@@ -12,36 +12,37 @@ const Home = () => {
   const history = useHistory();
 
   return (
-    <section className="student-home">
-      {store.student.isAuthenticated ? (
-        <>
-          <HomeHelper />
-          <div className="student-container">
-            <div className="cards-container">
-              {/* <div className="card">
-                <li className="nav-item-links">
-                  <Link to="/studentDetails">
-                    <li><AiOutlineWechat className="icon"/>Chat</li>
-                  </Link>
-                </li>
-              </div> */}
-              <div className="card">
-                <li className="nav-item-links">
-                  <Link to="/student/updatePassword">
-                    <li><MdUpdate className="icon"/>Atualizar Senha</li>
-                  </Link>
-                </li>
+    <section className="faculty-interface">
+    {store.student.isAuthenticated ? (
+      <>
+        <HomeHelper />
+        <div className="faculty-interface-container">
+          <div className="faculty-interface-content">
+          <div className="card">
+          <img
+                className="card-img-top"
+                src={store.student.student.student.avatar}
+                alt="Card image cap"
+              />
+              <div className="card-body">
+                <h5 className="card-title">
+                  {store.student.student.student.registrationNumber}
+                </h5>
               </div>
-              <div className="todo-tasks">
-                <TodoTasks/>
-              </div>
+              
             </div>
           </div>
-        </>
-      ) : (
-        history.push("/")
-      )}
-    </section>
+          <div className="task-section-container">
+          <div className="tasks-content">
+            <TodoTasks />
+          </div>
+          </div>
+        </div>
+      </>
+    ) : (
+      history.push("/")
+    )}
+  </section>
   );
 };
 

@@ -101,7 +101,7 @@ function TodoTasks() {
             value={todoDescription}
             onChange={(e) => setTodoDescription(e.target.value)}
           />
-          <button type="submit" className="btn">
+          <button type="submit" className="add-task-btn">
             {isLoadingPost ? "Adicionando tarefa ..." : "Adicionar tarefa"}
           </button>
         </form>

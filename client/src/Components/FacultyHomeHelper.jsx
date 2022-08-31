@@ -112,7 +112,7 @@ const Home = () => {
       </div>
           <nav className={nav ? 'menu menuOpen' : 'menu menuClose'}>
             <ul className="navbar-nav-mobile">
-              <li className="nav-item-mobile">
+              <li className="nav-item">
                 <Link to="/home">
                   <li className="nav-item active">
                     <IoHomeSharp className="icon" />

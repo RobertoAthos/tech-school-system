@@ -62,11 +62,16 @@ const Home = () => {
                   <li><MdUpdate className="icon"/>Atualizar Perfil</li>
                 </Link>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item">
               <Link className="dropdown-item"  to="/student/testPerformance">
                 <li><GiPencilRuler className="icon"/>Notas Gerais</li>
               </Link>
             </li>
+            <li className="nav-item">
+                  <Link to="/student/updatePassword">
+                    <li><MdUpdate className="icon"/>Atualizar Senha</li>
+                  </Link>
+                </li>
           </ul>
         </div>
       </nav>

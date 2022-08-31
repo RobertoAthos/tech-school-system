@@ -1,10 +1,21 @@
 .add-student-admin{
     display: flex;
 }
+@media(max-width:900px){
+    .add-student-admin{
+        flex-direction: column;
+    }
+}
 .container-inputs{
     width: 100%;
     display: flex;
     justify-content: space-around;
+}
+@media(max-width:500px){
+.container-inputs{
+    flex-direction: column;
+    justify-content: center;
+}
 }
 .container-inputs>.form-group>input,select{
     width: 280px ;
@@ -28,4 +39,10 @@
     padding: 15px;
     margin-top: 4rem;
     color: white;
+}
+@media(max-width:500px){
+    .add-student-container{
+        margin-top: 0;
+        border-radius: 0;
+    }
 }

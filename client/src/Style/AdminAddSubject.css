@@ -1,6 +1,11 @@
 .add-subject-admin{
     display: flex;
 }
+@media(max-width:900px){
+    .add-subject-admin{
+        flex-direction: column;
+    }
+}
 .add-subject-container{
     width: 100%;
     max-width: 1200px;
@@ -19,4 +24,12 @@
     border-radius: 15px;
     padding: 25px;
     color: white;
+}
+@media(max-width:500px){
+    .add-subject-content{
+        margin-top: 0;
+        border-radius: 0;
+        height: 100vh;
+        align-items: flex-start;
+    }
 }

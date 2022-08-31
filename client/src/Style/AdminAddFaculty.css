@@ -1,6 +1,11 @@
 .add-faculty-section{
     display: flex;
 }
+@media(max-width:900px){
+    .add-faculty-section{
+        flex-direction: column;
+    }
+}
 .form-group{
     display: flex;
     flex-direction: column;
@@ -21,6 +26,18 @@
     align-items: center;
     padding: 10px;
     color: white;
+}
+@media(max-width:500px){
+   .bg-content{
+    border-radius: 0;
+    height: 100vh;
+   }
+   .bg-content>.row>.col-md-6>.form-group>input,select{
+        width: 300px;
+   }
+   .form-control{
+    width: 300px;
+   }
 }
 .center-btn{
     width: 100%;
