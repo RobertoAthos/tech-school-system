@@ -6,7 +6,7 @@ import '../../Style/AdminHome.css'
 import {IoIosPeople} from 'react-icons/io'
 import {GiTeacher,GiBookshelf} from 'react-icons/gi'
 import Fade from 'react-reveal/Fade';
-import TodoTasks from "../../Components/TodoTasks";
+import TodoTasksAdmin from "../../Components/TodoTaskAdmin";
 
 const AdminHome = () => {
   const store = useSelector((store) => store);
@@ -45,7 +45,7 @@ const AdminHome = () => {
                 </li>
               </div>
             </div>
-            <TodoTasks/>
+            <TodoTasksAdmin/>
               </div>  
           </Fade>
         </>

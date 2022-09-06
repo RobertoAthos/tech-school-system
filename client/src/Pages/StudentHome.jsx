@@ -5,7 +5,7 @@ import HomeHelper from "../Components/HomeHelper";
 import "../Style/StudentHome.css";
 import { AiOutlineWechat } from 'react-icons/ai'
 import { MdUpdate } from 'react-icons/md'
-import TodoTasks from '../Components/TodoTasks'
+import TodoTasksStudent from '../Components/TodoTaskStudent'
 
 const Home = () => {
   const store = useSelector((store) => store);
@@ -34,7 +34,7 @@ const Home = () => {
           </div>
           <div className="task-section-container">
           <div className="tasks-content">
-            <TodoTasks />
+            <TodoTasksStudent />
           </div>
           </div>
         </div>

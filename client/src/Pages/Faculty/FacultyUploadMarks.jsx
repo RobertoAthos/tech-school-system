@@ -157,11 +157,6 @@ const FacultyUploadMarks = () => {
 
                                     })} id="examId">
                                     <option>Selecione</option>
-                                   {/*  <option value="CycleTest1">Trabalho</option>
-                                    <option value="CycleTest2">Prova</option>
-                                    <option value="CycleTest3">Trabalhos/Teste</option>
-                                    <option value="CycleTest4">Simulado</option>
-                                    <option value="CycleTest5">Atividades</option> */}
                                     <option value="CycleTest1">Português</option>
                                     <option value="CycleTest2">Matemática</option>
                                     <option value="CycleTest3">Inglês</option>
