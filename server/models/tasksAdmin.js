@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const todoSchema = new mongoose.Schema({
+const todoAdminSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "É obrigatório um título para tarefa"],
@@ -21,4 +21,4 @@ const todoSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Todo", todoSchema);
+module.exports = mongoose.model("TodoAdmin", todoAdminSchema);
