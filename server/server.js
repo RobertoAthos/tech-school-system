@@ -21,6 +21,8 @@ const adminRoutes = require('./routes/adminRoutes')
 const facultyRoutes = require('./routes/facultyRoutes')
 const studentRoutes = require('./routes/studentRoutes')
 const tasksRoutes = require('./routes/tasksRoutes')
+const tasksAdmin = require('./routes/tasksAdmin')
+const tasksStudent = require('./routes/tasksStudent')
 
 //Passport Middleware
 app.use(passport.initialize());
@@ -54,6 +56,8 @@ app.use('/api/admin', adminRoutes)
 app.use('/api/faculty', facultyRoutes)
 app.use('/api/student', studentRoutes)
 app.use("/api/tasks", tasksRoutes);
+app.use('/api/tasksStudent', tasksStudent)
+app.use('/api/tasksAdmin', tasksAdmin)
 
 
 //Catching 404 Error
