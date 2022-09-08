@@ -81,3 +81,21 @@ exports.updateATodo = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.deleteATodo = async (req, res) => {
+  try {
+    const { id: todoId } = req.params;
+    const todo = await Todo.findByIdAndDelete(todoId);
+
+    if (!todo) {
+      return res.status(404).json({ msg: `No todo with id: ${todoId}` });
+    } else {
+      res.status(200).json({
+        message: `Tarefa id: ${todoId} excluída com sucesso.`,
+        todo: todo,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

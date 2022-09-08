@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { getAllTodos, getATodo, createATodo, createManyTodos, updateATodo, deleteATodo } = require("../controller/tasksController");
+const { getAllTodos, getATodo, createATodo, createManyTodos, updateATodo, deleteATodo } = require("../controller/tasksStudent");
 
 router.get("/todos-all/student", getAllTodos);
 router.get("/todo/student/:id", getATodo);
