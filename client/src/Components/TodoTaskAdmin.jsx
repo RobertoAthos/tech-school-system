@@ -11,7 +11,7 @@ import "../Style/todo.css";
 import {AiOutlineArrowDown} from 'react-icons/ai'
 import {BiTrash} from 'react-icons/bi'
 
-function TodoTasks() {
+function TodoTasksAdmin() {
   const dispatch = useDispatch();
   const {
     isLoadingPost,
@@ -132,4 +132,4 @@ function TodoTasks() {
   );
 }
 
-export default TodoTasks;
+export default TodoTasksAdmin;
