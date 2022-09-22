@@ -2,11 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import AdminHomeHelper from "../../Components/AdminHomeHelper";
-import '../../Style/AdminHome.css'
+import  './AdminHome.css'
 import {IoIosPeople} from 'react-icons/io'
 import {GiTeacher,GiBookshelf} from 'react-icons/gi'
 import Fade from 'react-reveal/Fade';
-import TodoTasksAdmin from "../../Components/TodoTaskAdmin";
+import TodoAdmin from '../../Components/TodoAdmin'
 
 const AdminHome = () => {
   const store = useSelector((store) => store);
@@ -45,7 +45,7 @@ const AdminHome = () => {
                 </li>
               </div>
             </div>
-            <TodoTasksAdmin/>
+            <TodoAdmin/>
               </div>  
           </Fade>
         </>

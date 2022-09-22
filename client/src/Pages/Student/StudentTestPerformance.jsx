@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getMarks } from "../../redux/action/studentAction";
 import HomeHelper from "../../Components/HomeHelper";
 import { useHistory } from "react-router-dom";
-import "../../Style/StudentGrades.css";
+import "./StudentGrades.css";
 
 const StudentTestPerformance = () => {
   const store = useSelector((store) => store);

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, withRouter } from 'react-router-dom'
 import { facultyUpdate, facultyLogout} from '../../redux/action/facultyAction'
 import FacultyHomeHelper from '../../Components/FacultyHomeHelper'
-import '../../Style/FacultyUpdate.css'
+import './FacultyUpdate.css'
 import Button from '../../Components/Button/Button'
 
 

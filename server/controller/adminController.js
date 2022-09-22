@@ -66,7 +66,7 @@ module.exports = {
                 "ADM",
                 date.getFullYear(),
                 departmentHelper,
-                helper
+                helper,
             ];
 
             var registrationNumber = components.join("");

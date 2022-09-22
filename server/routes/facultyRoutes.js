@@ -19,7 +19,9 @@ router.post('/fetchStudents', passport.authenticate('jwt', { session: false }), 
 
 router.post('/fetchAllSubjects', passport.authenticate('jwt', { session: false }), getAllSubjects)
 
-router.post('/markAttendence', passport.authenticate('jwt', { session: false }), markAttendence,checkAttendence)
+router.post('/markAttendence', passport.authenticate('jwt', { session: false }), markAttendence)
+
+router.post('/checkAttendence',passport.authenticate('jwt', { session: false }), checkAttendence)
 
 router.post('/uploadMarks', passport.authenticate('jwt', { session: false }),uploadMarks)
 

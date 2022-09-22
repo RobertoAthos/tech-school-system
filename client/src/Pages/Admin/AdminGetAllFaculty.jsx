@@ -5,7 +5,7 @@ import { adminGetAllFaculty } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
 import classnames from 'classnames'
 import Button from '../../Components/Button/Button'
-import '../../Style/AdminFaculty.css'
+import './AdminFaculty.css'
 
 const AdminGetAllFaculty = () => {
     const store = useSelector((store) => store)

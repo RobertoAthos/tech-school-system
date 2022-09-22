@@ -1,0 +1,10 @@
+.student-home{
+    width: 100%;
+    display: flex;
+}
+@media(max-width:900px){
+    .student-home{
+        flex-direction: column;
+    }
+}
+

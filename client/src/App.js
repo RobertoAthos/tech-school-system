@@ -8,49 +8,45 @@ import './index.css'
 
 import { setFacultyUser, facultyLogout } from './redux/action/facultyAction'
 
-import { setAdminUser, adminLogout, adminGetAllStudent } from './redux/action/adminAction'
+import { setAdminUser, adminLogout } from './redux/action/adminAction'
 
 import { setStudentUser, studentLogout } from './redux/action/studentAction'
 
 
 import LoginPage from './Pages/LoginPage'
-import Home from './Pages/StudentHome'
+import Home from './Pages/Student/StudentHome'
 
+//import RecieverUserDetails from './Pages/RecieverUserDetails'
+//import StudentDetails from './Pages/Student/StudentDetails'
 
-import StudentDetails from './Pages/StudentDetails'
-import facultyInterface from './Pages/FacultyInterface'
-import AttendenceFaculty from './Pages/AttendenceFaculty'
-
-import AdminAddStudent from './Pages/AdminAddStudent'
-import AdminAddFaculty from './Pages/AdminAddFaculty'
-import AdminAddSubject from './Pages/AdminAddSubject'
-import StudentAttendencePage from './Pages/StudentAttendencePage'
-import FacultyStudentLoginPags from './Pages/FacultyStudentLoginPags'
-import StudentUpdatePassword from './Pages/StudentUpdatePassword'
-import FacultyUpdatePassword from './Pages/FacultyUpdatePassword'
-import ForgotPassword from './Pages/ForgotPassword'
-import Chat from './Pages/Chat'
-import RecieverUserDetails from './Pages/RecieverUserDetails'
-import StudentUpdateProfile from './Pages/StudentUpdateProfile'
- 
-import StudentSubjectList from './Pages/Student/StudentSubjectList'
-
-import FacultyUploadMarks from './Pages/Faculty/FacultyUploadMarks'
-
-import FacultyUpdateProfile from './Pages/Faculty/FacultyUpdateProfile'
-
-import StudentTestPerformace from './Pages/Student/StudentTestPerformance'
-
+//Admin Routes
+import AdminHome from './Pages/Admin/AdminHome'
+import AdminAddStudent from './Pages/Admin/AdminAddStudent'
+import AdminAddFaculty from './Pages/Admin/AdminAddFaculty'
+import AdminAddSubject from './Pages/Admin/AdminAddSubject'
 import AdminAddAdmin from './Pages/Admin/AdminAddAdmin'
-
 import AdminGetAllFaculty from './Pages/Admin/AdminGetAllFaculty'
-
 import AdminGetAllStudent from './Pages/Admin/AdminGetAllStudents'
-
 import AdminGetAllSubject from './Pages/Admin/AdminGetAllSubjects'
 
-import AdminHome from './Pages/Admin/AdminHome'
-import AllAtendences from './Pages/AllAtendences';
+// Teacher Routes
+import FacultyStudentLoginPags from './Pages/FacultyStudentLoginPags'
+import FacultyUpdatePassword from './Pages/Faculty/FacultyUpdatePassword'
+import FacultyUploadMarks from './Pages/Faculty/FacultyUploadMarks'
+import FacultyUpdateProfile from './Pages/Faculty/FacultyUpdateProfile'
+import facultyInterface from './Pages/Faculty/FacultyInterface'
+import AttendenceFaculty from './Pages/Faculty/AttendenceFaculty'
+
+
+// Student Routes
+import StudentUpdateProfile from './Pages/Student/StudentUpdateProfile'
+import StudentUpdatePassword from './Pages/Student/StudentUpdatePassword'
+import StudentAttendencePage from './Pages/Student/StudentAttendencePage'
+import StudentTestPerformace from './Pages/Student/StudentTestPerformance'
+
+// Forgot password route
+import ForgotPassword from './Pages/ForgotPassword'
+
  
 if (window.localStorage.facultyJwtToken) {
   setAuthToken(localStorage.facultyJwtToken);
@@ -102,7 +98,6 @@ function App() {
           <Route exact path='/adminLogin' component={LoginPage} />
           <Route exact path='/home' component={Home} />
           <Route exact path='/student/updateProfile' component={StudentUpdateProfile} />
-          <Route exact path="/studentDetails" component={StudentDetails} />
           <Route exact path='/faculty' component={facultyInterface} />
           <Route exact path='/attendenceFaculty' component={AttendenceFaculty} />
           <Route exact path='/admin' component={AdminHome} />
@@ -119,11 +114,7 @@ function App() {
           <Route exact path="/faculty/updatePassword" component={FacultyUpdatePassword} />
           <Route exact path="/faculty/uploadMarks" component={FacultyUploadMarks} />
           <Route exact path="/faculty/updateProfile" component={FacultyUpdateProfile} />
-          <Route exact path="/student/getAllSubjects" component={StudentSubjectList} />
           <Route exact path="/forgotPassword/:user" component={ForgotPassword} />
-          <Route exact path="/chat/:room" component={Chat} />
-          <Route exact path="/student/:registrationNumber" component={RecieverUserDetails} />
-          <Route exact path='/allAtendences' component={<AllAtendences/>}/>
         </Switch>
       </Router>
     </div>

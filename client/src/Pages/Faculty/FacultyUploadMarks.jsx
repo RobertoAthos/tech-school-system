@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import { fetchStudents, uploadMarks } from '../../redux/action/facultyAction'
 import FacultyHomeHelper from '../../Components/FacultyHomeHelper'
 import { useHistory } from 'react-router-dom'
-import '../../Style/UploadGrades.css'
+import './UploadGrades.css'
 
 
 const FacultyUploadMarks = () => {
@@ -157,6 +157,11 @@ const FacultyUploadMarks = () => {
 
                                     })} id="examId">
                                     <option>Selecione</option>
+                                   {/*  <option value="CycleTest1">Trabalho</option>
+                                    <option value="CycleTest2">Prova</option>
+                                    <option value="CycleTest3">Trabalhos/Teste</option>
+                                    <option value="CycleTest4">Simulado</option>
+                                    <option value="CycleTest5">Atividades</option> */}
                                     <option value="CycleTest1">Português</option>
                                     <option value="CycleTest2">Matemática</option>
                                     <option value="CycleTest3">Inglês</option>
@@ -172,7 +177,7 @@ const FacultyUploadMarks = () => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="marksId">Total Marks</label>
+                                <label htmlFor="marksId">Valor</label>
                                 <input type="number" className={classnames("form-control",
                                     {
                                         'is-invalid': errorHelper.totalMarks

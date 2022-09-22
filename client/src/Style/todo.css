@@ -29,6 +29,7 @@ textarea{
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 3rem;
+    padding: 10px;
 }
 .tasks-card{
     box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.226);

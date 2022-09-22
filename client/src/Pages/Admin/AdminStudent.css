@@ -1,0 +1,43 @@
+.all-student-admin{
+    display: flex;
+   
+}
+.all-student-container{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.all-student-content{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #0C77E8;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+
+}
+.student-info{
+    margin-top: 3rem;
+}
+.student-info>.table-border>thead>tr>th{
+    border-right: 1px solid black;
+    text-align: center;
+    margin: 15px;
+}
+.student-info>.table-border{
+    overflow: scroll;
+}
+.student-info>.table-border>tbody>tr>td{
+    background-color: rgba(178, 185, 192, 0.137);
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}

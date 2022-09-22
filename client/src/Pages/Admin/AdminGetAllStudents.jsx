@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { adminGetAllStudent } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
 import classnames from 'classnames'
-import '../../Style/AdminStudent.css'
+import './AdminStudent.css'
 import Button from '../../Components/Button/Button'
 
 const AdminGetAllFaculty = () => {
