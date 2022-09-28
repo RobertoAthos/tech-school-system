@@ -5,8 +5,6 @@ import HomeHelper from "../../Components/HomeHelper";
 import "./StudentHome.css";
 import { AiOutlineWechat } from 'react-icons/ai'
 import { MdUpdate } from 'react-icons/md'
-import TodoStudent from '../../Components/TodoStudent'
-
 const Home = () => {
   const store = useSelector((store) => store);
   const history = useHistory();
@@ -31,11 +29,6 @@ const Home = () => {
               </div>
               
             </div>
-          </div>
-          <div className="task-section-container">
-          <div className="tasks-content">
-            <TodoStudent/>
-          </div>
           </div>
         </div>
       </>

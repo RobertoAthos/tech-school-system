@@ -40,8 +40,7 @@ function TodoTasksAdmin() {
       setTodoTitle("");
       setTodoDescription("");
       setValidationError("");
-
-      dispatch(createTodo({ todoTitle, todoDescription }));
+      dispatch(createTodo({ todoTitle, todoDescription}));
     }
   };
 

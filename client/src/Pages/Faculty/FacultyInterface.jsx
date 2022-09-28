@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import {useHistory } from "react-router-dom";
 import FacultyHomeHelper from "../../Components/FacultyHomeHelper";
-import TodoTasks from "../../Components/TodoTasks";
 import "./FacultyInterface.css";
 
 const FacultyInterface = () => {
@@ -28,11 +27,6 @@ const FacultyInterface = () => {
                 </div>
                 
               </div>
-            </div>
-            <div className="task-section-container">
-            <div className="tasks-content">
-              <TodoTasks />
-            </div>
             </div>
           </div>
         </>

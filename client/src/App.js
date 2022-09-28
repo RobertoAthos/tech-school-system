@@ -28,6 +28,7 @@ import AdminAddAdmin from './Pages/Admin/AdminAddAdmin'
 import AdminGetAllFaculty from './Pages/Admin/AdminGetAllFaculty'
 import AdminGetAllStudent from './Pages/Admin/AdminGetAllStudents'
 import AdminGetAllSubject from './Pages/Admin/AdminGetAllSubjects'
+import AdminEventsPage from './Pages/Admin/AdminEventsPage';
 
 // Teacher Routes
 import FacultyStudentLoginPags from './Pages/FacultyStudentLoginPags'
@@ -108,6 +109,7 @@ function App() {
           <Route exact path="/admin/allFaculties" component={AdminGetAllFaculty} />
           <Route exact path="/admin/allStudents" component={AdminGetAllStudent} />
           <Route exact path="/admin/allSubject" component={AdminGetAllSubject} />
+          <Route exact path="/admin/events" component={AdminEventsPage}/>
           <Route exact path="/faculty/attendence" component={StudentAttendencePage} />
           <Route exact path="/student/updatePassword" component={StudentUpdatePassword} />
           <Route exact path="/student/testPerformance" component={StudentTestPerformace} />

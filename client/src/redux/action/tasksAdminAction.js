@@ -20,6 +20,7 @@ export const getAllTodos = async (dispatch) => {
     try {
       const res = await axios.post(apiUrl + "/todo/new/admin", {
         title: payload.todoTitle,
+        id_admin: payload.todoID,
         description: payload.todoDescription,
       });
       dispatch({ type: POST_TODOS_SUCCESS, payload: res.data });

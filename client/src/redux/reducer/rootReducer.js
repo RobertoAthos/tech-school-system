@@ -5,6 +5,7 @@ import studentReducer from './studentReducer'
 import errorReducerHelper from './errorReducerHelper'
 import errorReducer from './errorReducer'
 import todosReducer from './todoReducer';
+import eventsReducer from './eventReducer';
 
 export default combineReducers({
     faculty: facultyReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
     error: errorReducer,
     errorHelper: errorReducerHelper,
     todos: todosReducer,
+    events: eventsReducer
 });

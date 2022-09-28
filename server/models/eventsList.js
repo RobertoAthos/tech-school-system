@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const todoStudentSchema = new mongoose.Schema({
+const eventListSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "É obrigatório um título para tarefa"],
@@ -11,14 +11,10 @@ const todoStudentSchema = new mongoose.Schema({
     type: String,
     required: [true, "Descrição é obrigatória"],
   },
-  completed: {
-    type: Boolean,
-    default: false,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
-  },
+  }
 });
 
-module.exports = mongoose.model("TodoStudent", todoStudentSchema);
+module.exports = mongoose.model("Events", eventListSchema);

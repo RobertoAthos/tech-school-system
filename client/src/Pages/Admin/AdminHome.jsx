@@ -6,7 +6,7 @@ import  './AdminHome.css'
 import {IoIosPeople} from 'react-icons/io'
 import {GiTeacher,GiBookshelf} from 'react-icons/gi'
 import Fade from 'react-reveal/Fade';
-import TodoAdmin from '../../Components/TodoAdmin'
+import TodoAdmin from '../../Components/TodoTaskAdmin'
 
 const AdminHome = () => {
   const store = useSelector((store) => store);
