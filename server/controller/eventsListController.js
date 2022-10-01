@@ -1,4 +1,4 @@
-const Event = require("../models/tasksAdmin");
+const Event = require("../models/eventsList");
 
 exports.getAllEvents = async (req, res) => {
   try {

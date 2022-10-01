@@ -44,6 +44,13 @@ const AdminHome = () => {
                   </Link>
                 </li>
               </div>
+              <div className="card">
+                <li className="card-link">
+                  <Link to="/admin/events">
+                    <li><GiTeacher className="icon"/>Lançar Eventos</li>
+                  </Link>
+                </li>
+              </div>
             </div>
             <TodoAdmin/>
               </div>  

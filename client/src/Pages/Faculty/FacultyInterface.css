@@ -5,6 +5,13 @@
     width: 100%;
    
 }
+.features-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
 .faculty-interface-content{
     background-color: #0D43FF;
     height: 70px;

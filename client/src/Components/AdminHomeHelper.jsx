@@ -59,9 +59,7 @@ const Home = () => {
                       <li className="nav-item">
                          <Link to="/admin/addAdmin"><li><RiAdminFill className='icon'/>Adicionar Admin</li></Link>
                       </li>
-                      <li className="nav-item">
-                         <Link to="/admin/events"><li>Lançar Eventos</li></Link>
-                      </li>
+              
                   </ul>
               </div>
           </nav>
