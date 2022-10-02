@@ -12,7 +12,6 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [ ] Melhorar Design Ui/Ux
-- [ ] Individualizar todo-list em contas
 - [ ] Melhorar sistema de envio e recebimento de notas
 - [ ] Criar feature para professores conseguirem acessar chamadas antigas
 - [ ] Ajustar OTP no link do "esqueci a senha"
