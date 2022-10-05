@@ -6,7 +6,7 @@ import {
     GET_SUBJECTS
 } from '../actionTypes'
 
-const url = "https://tech-school-backend.herokuapp.com"
+const url = "http://localhost:5000"
 
 const setAdmin = (data) => {
     return {

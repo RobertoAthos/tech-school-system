@@ -56,7 +56,7 @@ exports.deleteEvent = async (req, res) => {
     const events = await Event.findByIdAndDelete(eventId);
 
     if (!events) {
-      return res.status(404).json({ msg: `No todo with id: ${eventId}` });
+      return res.status(404).json({ msg: `No ta with id: ${eventId}` });
     } else {
       res.status(200).json({
         message: `Tarefa id: ${eventId} excluída com sucesso.`,

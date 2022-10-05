@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {createEvent,deleteEvent,getAllEvents} from '../redux/action/eventsListAction'
 import { BiTrash } from 'react-icons/bi'
+import AdminHomeHelper from './AdminHomeHelper'
+import '../Style/events.css'
 
 export default function EventsList() {
 
@@ -63,48 +65,51 @@ export default function EventsList() {
   }, [dispatch, isLoadingPost, isLoadingDelete]);
 
   return (
-    <div className='events-container'>
-      <div className="validation-box">
-      {validationError && (
-            <div>
-              <p className="invalid-feedback">{validationError}</p>
-            </div>
-          )}
-          {success && (
-            <div>
-              <p className="valid-feedback">{success}</p>
-            </div>
-          )}
-      </div>
-      <div className="form-cointainer">
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Título' onChange={e=>setEventTitle(e.target.value)} value={eventTitle} />
-            <input type="text" placeholder='Descrição' onChange={e=>setEventDescription(e.target.value)} value={eventDescription}/>
-            <button type="submit" className="add-task-btn">
-            {isLoadingPost ? "Adicionando evento ..." : "Adicionar Evento"}
-          </button>
-        </form>
-      </div>
-      <div className="events">
-        <h2>Eventos</h2>
-        {isLoading && <h2>Carregando...</h2>}
+   <section className='events-section'>
+    <AdminHomeHelper/>
+   <div className='events-container'>
+   <div className="validation-box">
+   {validationError && (
+         <div>
+           <p className="invalid-feedback">{validationError}</p>
+         </div>
+       )}
+       {success && (
+         <div>
+           <p className="valid-feedback">{success}</p>
+         </div>
+       )}
+   </div>
+   <div className="form-container">
+     <form onSubmit={handleSubmit}>
+         <input type="text" placeholder='Título' onChange={e=>setEventTitle(e.target.value)} value={eventTitle} />
+         <input type="text" placeholder='Descrição' onChange={e=>setEventDescription(e.target.value)} value={eventDescription}/>
+         <button type="submit" className="add-task-btn">
+         {isLoadingPost ? "Adicionando evento ..." : "Adicionar Evento"}
+       </button>
+     </form>
+   </div>
+   <div className="events">
+     <h2>Eventos</h2>
+     {isLoading && <h2>Carregando...</h2>}
 
-        {events.length === 0 ? (
-            <h3>Nenhum evento encontrado</h3>
-          ) : (
-            events.events.map((event, index) => (
-              <div key={index} className='tasks-card'>
-                <h2>{event.title}</h2>
-                <p>{event.description}</p>
-                <div className="button-task">
-                <button onClick={() => handleDelete(event._id)} className='delete-btn'>
-                  <BiTrash/>
-                </button>
-                </div>
-              </div>
-            ))
-          )}
-      </div>
-    </div>
+     {events.length === 0 ? (
+         <h3>Nenhum evento encontrado</h3>
+       ) : (
+         events.events.map((event, index) => (
+           <div key={index} className='tasks-card'>
+             <h2>{event.title}</h2>
+             <p>{event.description}</p>
+             <div className="button-task">
+             <button onClick={() => handleDelete(event._id)} className='delete-btn'>
+               <BiTrash/>
+             </button>
+             </div>
+           </div>
+         ))
+       )}
+   </div>
+ </div>
+   </section>
   )
 }

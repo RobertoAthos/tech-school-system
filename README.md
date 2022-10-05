@@ -15,6 +15,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Melhorar sistema de envio e recebimento de notas
 - [ ] Criar feature para professores conseguirem acessar chamadas antigas
 - [ ] Ajustar OTP no link do "esqueci a senha"
+- [ ] Criar componente melhor para a sideBar
 
 
 ## 👥 Como Logar e utilizar o sistema.

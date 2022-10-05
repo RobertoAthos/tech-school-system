@@ -5,7 +5,6 @@ import AdminHomeHelper from "../../Components/AdminHomeHelper";
 import  './AdminHome.css'
 import {IoIosPeople} from 'react-icons/io'
 import {GiTeacher,GiBookshelf} from 'react-icons/gi'
-import Fade from 'react-reveal/Fade';
 import TodoAdmin from '../../Components/TodoTaskAdmin'
 
 const AdminHome = () => {
@@ -17,8 +16,6 @@ const AdminHome = () => {
       {store.admin.isAuthenticated ? (
         <>
           <AdminHomeHelper />
-
-          <Fade bottom>
           <div className="admin-content">
           
             <div className="cards-container">
@@ -54,7 +51,6 @@ const AdminHome = () => {
             </div>
             <TodoAdmin/>
               </div>  
-          </Fade>
         </>
       ) : (
         history.push("/")
