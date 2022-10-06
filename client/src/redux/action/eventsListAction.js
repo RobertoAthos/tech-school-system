@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiUrl = "http://localhost:5000/api/events";
+const apiUrl = "https://tech-school-server.herokuapp.com/api/events";
 
 export const getAllEvents = async (dispatch) => {
     dispatch({ type: 'GET_EVENTS_REQUEST' });

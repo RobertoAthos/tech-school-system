@@ -1,6 +1,6 @@
 import axios from "axios";
 import { DELETE_TODOS_FAILURE, DELETE_TODOS_REQUEST, DELETE_TODOS_SUCCESS, GET_TODOS_FAILURE, GET_TODOS_REQUEST, GET_TODOS_SUCCESS, POST_TODOS_FAILURE, POST_TODOS_REQUEST, POST_TODOS_SUCCESS } from "../actionTypes";
-const apiUrl = "http://localhost:5000/api/tasksAdmin";
+const apiUrl = "https://tech-school-server.herokuapp.com/api/tasksAdmin";
 
 
 export const getAllTodos = async (dispatch) => {
