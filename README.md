@@ -2,7 +2,7 @@
 
 > Tech School é um sistema de gestão escolar para instituições pequenas e médias, onde podem contar com ferramentas para agilizar e automatizar a vida escolar, tanto para o aluno, tanto para a escola em geral.
 
-### Live Url : https://tech-school-client-robertoathos.vercel.app/
+### Live Url : https://tech-school-client-oi0mlg1pu-robertoathos.vercel.app/
 
 <img src="https://user-images.githubusercontent.com/94712001/192067905-e3ae7224-515a-4ef9-b91a-68301830f056.png" alt="exemplo imagem">
 
